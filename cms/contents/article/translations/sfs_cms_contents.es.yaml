@@ -1,0 +1,183 @@
+admin_article:
+    entity_not_found_flash: "El artículo no se ha encontrado"
+    
+    tabs_menu:
+        details: "General"
+        update: "Editar"
+        seo: "SEO"
+        content: "Contenido (ultima versión)"
+        preview: "Previsualizar (ultima versión)"
+        versions: "Versiones"
+
+    create:
+        meta.title: "Nuevo artículo"
+        title: "Nuevo artículo"
+        breadcrumb: "Nuevo artículo"
+        actions:
+            create.button: "Crear artículo"
+            cancel.button: "Cancelar"
+    
+    publish:
+        version_has_been_published_flash: "La versión se ha publicado"
+        
+    import:
+        meta.title: "Importar artículo"
+        title: "Importar artículo"
+        breadcrumb: "Importar artículo"
+        actions:
+            import.button: "Importar artículo"
+            cancel.button: "Cancelar"
+        form:
+            file.label: "Fichero a importar"
+
+    read:
+        meta.title: "General"
+        title: "%name%"
+        breadcrumb: "General"
+
+    versions:
+        meta.title: "Versiones"
+        title: "%name%"
+        breadcrumb: "Versiones"
+        fields:
+            id.header: "Versión"
+            origin.header: "Origen"
+            created.header: "Creación"
+            publish_status.header: "Publicación"
+        publish_status:
+            published: "publicada"
+            unpublished: ""
+        origin:
+            "null": ""
+            1: "editado"
+            2: "fixture"
+            3: "cargada"
+        actions:
+            edit.link: "Editar"
+            preview.link: "Previsualizar"
+            export.link: "Exportar"
+            publish.link: "Publicar versión"
+            cleanup_versions.link: "Limpiar versiones"
+            keep.link: "Mantener versión, pinchar para desmarcar"
+            nokeep.link: "No mantener esta versión, pinchar para mantener"
+    preview:
+        meta.title: "Previsualizar artículo"
+        title: "%name%"
+        breadcrumb: "Previsualizar artículo"
+        actions:
+            open.button: "Abrir"
+            cancel.button: "Atrás"
+            content.button: "Editar versión"
+            publish.button: "Publicar versión"
+            published.button: "Publicada"
+
+    translations:
+        meta.title: "Traducciones de la artículo"
+        title: "%name%"
+        breadcrumb: "Traducciones de la artículo"
+
+    update:
+        meta.title: "Editar artículo"
+        title: "%name%"
+        breadcrumb: "Editar artículo"
+        actions:
+            update.button: "Guardar cambios"
+            cancel.button: "Cancelar"
+            delete.button: "Eliminar"
+
+    delete:
+        meta.title: "Eliminar artículo"
+        title: "%name%"
+        breadcrumb: "Eliminar artículo"
+        main_warnings_raw: '<p>¿Estás seguro de eliminar este contenido??</p><p>Esta acción no se podrá deshacer.</p>'
+        offer_backup: 'Si quieres puedes hacer un backup de la versión publicada de este contenido antes'
+        index_warnings_raw: '<p><strong>¡No pierdas los enlaces e indexación!</strong></p>'
+        actions:
+            export.button: Exportar
+            delete.button: "Eliminar definitivamente"
+            cancel.button: "Cancelar"
+        form:
+            action:
+                label: "¿Qué te gustaría hacer con las rutas de esta artículo?"
+                options:
+                    delete: "Eliminar rutas de todas formas"
+                    change: "Apuntar a otro contenido (sin redirección)"
+                    redirect: "Redirigir a otra ruta (redirección permanente)"
+            content.label: "Nuevo contenido para las rutas"
+            symfonyRoute:
+                label: "Redirigir a ruta"
+                route_name.label: "Nombre de ruta"
+                route_params.label: "Parámetros"
+
+    seo:
+        meta.title: "Editar SEO"
+        title: "%name%"
+        breadcrumb: "Editar SEO"
+        actions:
+            save.button: "Guardar cambios"
+            cancel.button: "Cancelar"
+
+    content:
+        meta.title: "Editar contenido"
+        title: "%name%"
+        breadcrumb: "Editar contenido"
+        actions:
+            save.button: "Guardar cambios"
+            save_and_exit.button: "Guardar y salir"
+            save_and_preview.button: "Guardar y previsualizar"
+            save_and_publish.button: "Guardar y publicar"
+            cancel.button: "Cancelar"
+
+    list:
+        meta.title: "Artículos"
+        title: "Artículos"
+        breadcrumb: "Artículos"
+        actions:
+            create.link: "Nuevo artículo"
+            import.link: "Importar artículo"
+            details.link: "Ver"
+            update.link: "Editar"
+            preview.link: "Previsualizar"
+        fields:
+            id.header: "Identificador"
+            site.header: "Sitio"
+            name.header: "Nombre"
+        filter_form:
+            name.label: "Nombre"
+            site.label: "Sitio"
+
+    form:
+        name.label: "Nombre"
+        site.label: "Site"
+        title.label: "Título"
+        description.label: "Excerpt"
+        publishedAt.label: "Fecha publicación"
+        routes:
+            0.label: ""
+            label: "Rutas"
+            id.label: "Identificador"
+            site.label: "Site"
+            paths:
+                label: "URLs"
+                path.label: "Segmento de URL"
+                cacheTtl.label: "Tiempo de caché"
+                locale.label: "Idioma"
+        seo:
+            metaTitle.label: "Título (título del navegador y etiquetas meta)"
+            metaDescription.label: "Descripción (etiqueta meta)"
+            metaKeywords.label: "Palabras clave (etiqueta meta)"
+            noIndex.label: "No indexar"
+            noFollow.label: "No seguir enlaces"
+            sitemap.label: "Mapa de sitio"
+            sitemapChangefreq:
+                label: "Frecuencia de cambio en el sitemap"
+                values:
+                    empty: ""
+                    always: "siempre"
+                    hourly: "cada hora"
+                    daily: "diariamente"
+                    weekly: "semanalmente"
+                    monthly: "mensualmente"
+                    yearly: "anualmente"
+                    never: "nunca"
+            sitemapPriority.label: "Prioridad de URL en el sitemap"

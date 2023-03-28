@@ -1,0 +1,10 @@
+{% for localeField in form.locale_filter %}
+    {% set locale = localeField.vars.label %}
+    <div style="pointer-events: none;cursor: default;" data-lang="{{ locale }}">
+        {{ sfs_cms_block_by_type('article_list', {
+            'current_route': '',
+            'cms-edit':true,
+            '_locale':locale
+        }) }}
+    </div>
+{% endfor %}

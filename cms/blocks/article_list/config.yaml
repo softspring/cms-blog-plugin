@@ -1,0 +1,6 @@
+block:
+    revision: 1
+    static: true
+    esi: true
+    singleton: true
+    render_url: cms_blog_block_article_list

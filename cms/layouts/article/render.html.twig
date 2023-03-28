@@ -1,0 +1,19 @@
+{% extends '@layout/default/render.html.twig' %}
+
+{% block container %}
+    <div class="container">
+        <h1>{{ content.extraData.title[app.request.locale] }}</h1>
+        <p>{{ content.extraData.description[app.request.locale] }}</p>
+
+        <p>
+            <em>
+                Publicado {{ content.publishedAt|time_ago|lower }}
+            </em>
+        </p>
+
+        <hr class="mb-3"/>
+
+
+        {{ containers.main|raw }}
+    </div>
+{% endblock container %}

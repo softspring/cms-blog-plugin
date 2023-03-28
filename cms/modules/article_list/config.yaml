@@ -1,0 +1,5 @@
+module:
+    group: blog
+    revision: 1
+    edit_template: '@module/article_list/edit.html.twig'
+    form_template: '@module/article_list/form.html.twig'

@@ -1,0 +1,12 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Softspring\CmsBlogBundle\Controller\:
+        resource: '../../src/Controller/*'
+        tags: ['controller.service_arguments']
+
+    Softspring\CmsBlogBundle\Data\:
+        resource: '../../src/Data/*'

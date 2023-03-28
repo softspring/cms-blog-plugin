@@ -1,0 +1,22 @@
+{% block body %}
+    <main role="main">
+        <div class="container">
+            {% for locale,title in entity.extraData.title %}
+                <h1 data-lang="{{ locale }}">{{ title }}</h1>
+            {% endfor %}
+
+            {% for locale,description in entity.extraData.description %}
+                <p data-lang="{{ locale }}">{{ description }}</p>
+            {% endfor %}
+
+            <p>
+                <em>
+                    Publicado {{ entity.publishedAt|time_ago|lower }}
+                </em>
+            </p>
+
+
+            {{ form_row(form.data.main) }}
+        </div>
+    </main>
+{% endblock %}

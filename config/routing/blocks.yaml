@@ -1,0 +1,6 @@
+cms_blog_block_article_list:
+    path: /_blog_blocks/article-list
+    controller: Softspring\CmsBlogBundle\Controller\ArticleController::listBlock
+#    controller: Softspring\CmsBundle\Controller\BlockController::renderByType
+#    defaults:
+#        type: article_list

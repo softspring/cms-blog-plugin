@@ -1,0 +1,37 @@
+{% if not app.request.query.has('cms-edit') %}
+    {{ form_start(filterForm) }}
+    {{ form_rest(filterForm) }}
+    <input type="submit" value="search" />
+    {{ form_end(filterForm) }}
+
+    {% for article in articles %}
+        <h2><a href="{{ url(article.routes.first) }}">{{ article.extraData.title[app.request.locale]|default(article.name) }}</a></h2>
+        <p>{{ article.extraData.description[app.request.locale]|default }}</p>
+        <em>Publicado {{ article.publishedAt|time_ago|lower }}</em>
+
+        <hr class="mb-5"/>
+    {% endfor %}
+
+    {% include '@SfsComponents/paginator/pager.html.twig' with {
+        'collection': articles,
+        'pagination_route': app.request.query.get('current_route', ''),
+        'pagination_route_attributes': {},
+        'query_params': query,
+    } %}
+{% else %}
+    {% for article in articles %}
+        <h2><a href="#">{{ article.extraData.title[app.request.locale]|default(article.name) }}</a></h2>
+        <p>{{ article.extraData.description[app.request.locale]|default }}</p>
+        <em>Publicado {{ article.publishedAt|time_ago|lower }}</em>
+
+        <hr class="mb-5"/>
+    {% endfor %}
+
+    {% include '@SfsComponents/paginator/pager.html.twig' with {
+        'collection': articles,
+        'pagination_route': '',
+        'pagination_route_attributes': {},
+        'query_params': {},
+    } %}
+{% endif %}
+
