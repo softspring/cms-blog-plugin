@@ -1,0 +1,7 @@
+article_list:
+    label: "Listado de artículos"
+    prototype_button_icon: ""
+    prototype_button: "Listado de artículos"
+    form:
+        site_filter.label: "Sitios"
+        locale_filter.label: "Idiomas"
