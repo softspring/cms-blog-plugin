@@ -8,5 +8,9 @@ services:
         resource: '../../src/Controller/*'
         tags: ['controller.service_arguments']
 
+    Softspring\CmsBlogBundle\Form\:
+        resource: '../../src/Form/*'
+        tags: ['form.type']
+
     Softspring\CmsBlogBundle\Data\:
         resource: '../../src/Data/*'

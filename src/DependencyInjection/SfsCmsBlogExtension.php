@@ -57,8 +57,7 @@ class SfsCmsBlogExtension extends Extension implements PrependExtensionInterface
 
         $cmsConfig = [
             'collections' => [
-                // 'vendor/softspring/cms-blog-bundle/cms' TODO CHANGE THIS WHEN A FULL COMPOSER PACKAGE IN GITHUB-PACKAGIST
-                'cms-blog-bundle/cms',
+                'vendor/softspring/cms-blog-bundle/cms'
             ],
         ];
 
