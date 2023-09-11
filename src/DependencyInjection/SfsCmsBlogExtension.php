@@ -16,7 +16,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 class SfsCmsBlogExtension extends Extension implements PrependExtensionInterface
 {
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $processor = new Processor();
         $configuration = new Configuration();
@@ -30,7 +30,7 @@ class SfsCmsBlogExtension extends Extension implements PrependExtensionInterface
         $loader->load('services.yaml');
     }
 
-    public function prepend(ContainerBuilder $container)
+    public function prepend(ContainerBuilder $container): void
     {
         $doctrineConfig = [
             'orm' => [
@@ -57,7 +57,7 @@ class SfsCmsBlogExtension extends Extension implements PrependExtensionInterface
 
         $cmsConfig = [
             'collections' => [
-                'vendor/softspring/cms-blog-bundle/cms'
+                'vendor/softspring/cms-blog-bundle/cms',
             ],
         ];
 
@@ -69,20 +69,20 @@ class SfsCmsBlogExtension extends Extension implements PrependExtensionInterface
             ],
         ]);
 
-//        $version = InstalledVersions::getVersion('softspring/cms-bundle');
-//        if (str_ends_with($version, '-dev')) {
-//            $version = InstalledVersions::getPrettyVersion('softspring/cms-bundle');
-//        }
-//        $container->prependExtensionConfig('twig', [
-//            'globals' => [
-//                'sfs_cms_bundle' => [
-//                    'version' => $version,
-//                    'version_branch' => str_ends_with($version, '-dev') ? str_replace('.x-dev', '', $version) : false,
-//                ],
-//            ],
-//            'paths' => [
-//                '%kernel.project_dir%/vendor/softspring/polymorphic-form-type/templates' => 'SfsPolymorphicFormType',
-//            ],
-//        ]);
+        //        $version = InstalledVersions::getVersion('softspring/cms-bundle');
+        //        if (str_ends_with($version, '-dev')) {
+        //            $version = InstalledVersions::getPrettyVersion('softspring/cms-bundle');
+        //        }
+        //        $container->prependExtensionConfig('twig', [
+        //            'globals' => [
+        //                'sfs_cms_bundle' => [
+        //                    'version' => $version,
+        //                    'version_branch' => str_ends_with($version, '-dev') ? str_replace('.x-dev', '', $version) : false,
+        //                ],
+        //            ],
+        //            'paths' => [
+        //                '%kernel.project_dir%/vendor/softspring/polymorphic-form-type/templates' => 'SfsPolymorphicFormType',
+        //            ],
+        //        ]);
     }
 }
