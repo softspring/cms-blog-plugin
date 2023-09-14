@@ -14,3 +14,9 @@ services:
 
     Softspring\CmsBlogBundle\Data\:
         resource: '../../src/Data/*'
+
+    Softspring\CmsBlogBundle\EventListener\OverrideDoctrineClassSuperclassListener:
+        arguments:
+            $superclassList: '%sfs_cms_blog.convert_superclass_list%'
+        tags:
+            - { name: doctrine.event_listener, event: loadClassMetadata, priority: 500 }

@@ -2,10 +2,10 @@
 
 namespace Softspring\CmsBlogBundle\DependencyInjection;
 
-use Composer\InstalledVersions;
 use Scienta\DoctrineJsonFunctions\Query\AST\Functions\Mariadb\JsonValue;
 use Scienta\DoctrineJsonFunctions\Query\AST\Functions\Mysql\JsonExtract;
 use Scienta\DoctrineJsonFunctions\Query\AST\Functions\Mysql\JsonSearch;
+use Softspring\CmsBlogBundle\Entity\ArticleContent;
 use Softspring\CmsBlogBundle\Model\ArticleContentInterface;
 use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\Config\FileLocator;
@@ -26,8 +26,21 @@ class SfsCmsBlogExtension extends Extension implements PrependExtensionInterface
         // configure article classes
         $container->setParameter('sfs_cms_blog.article.class', $config['article']['class']);
 
+        $this->processDataClasses($container);
+
         // load services
         $loader->load('services.yaml');
+    }
+
+    protected function processDataClasses(ContainerBuilder $container): void
+    {
+        $superClassList = [];
+
+        if ($container->getParameter('sfs_cms_blog.article.class') !== ArticleContent::class) {
+            $superClassList[] = ArticleContent::class;
+        }
+
+        $container->setParameter('sfs_cms_blog.convert_superclass_list', $superClassList);
     }
 
     public function prepend(ContainerBuilder $container): void
@@ -45,7 +58,7 @@ class SfsCmsBlogExtension extends Extension implements PrependExtensionInterface
         ];
 
         // add a default config to force load target_entities, will be overwritten by ResolveDoctrineTargetEntityPass
-        $doctrineConfig['orm']['resolve_target_entities'][ArticleContentInterface::class] = 'Softspring\CmsBlogBundle\Entity\ArticleContent';
+        $doctrineConfig['orm']['resolve_target_entities'][ArticleContentInterface::class] = ArticleContent::class;
 
         // disable auto-mapping for this bundle to prevent mapping errors
         $doctrineConfig['orm']['mappings']['SfsCmsBlogBundle'] = [
