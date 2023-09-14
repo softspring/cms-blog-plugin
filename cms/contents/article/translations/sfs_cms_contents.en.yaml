@@ -19,7 +19,10 @@ admin_article:
     
     publish:
         version_has_been_published_flash: "Version has been published"
-        
+
+    unpublish:
+        has_been_unpublished_flash: "The page has been unpublished"
+
     import:
         meta.title: "Import article page"
         title: "Import article page"
@@ -30,10 +33,24 @@ admin_article:
         form:
             file.label: "Import content file"
 
+    import_version:
+        meta.title: "Import version"
+        title: "Import version"
+        breadcrumb: "Import version"
+        actions:
+            import.button: "Import version"
+            cancel.button: "Cancel"
+        form:
+            file.label: "Import content file"
+
     read:
         meta.title: "General"
         title: "%name%"
         breadcrumb: "General"
+        actions:
+            unpublish:
+                confirm: "are you sure to unpublish this page?"
+                link: "Unpublish"
 
     versions:
         meta.title: "Versions"
@@ -57,6 +74,7 @@ admin_article:
             preview.link: "Preview"
             export.link: "Export"
             publish.link: "Publish version"
+            import_version.link: "Import version"
             cleanup_versions.link: "Cleanup versions"
             keep.link: "Keep version, click to no keep"
             nokeep.link: "Do not keep version, click to keep"
@@ -121,6 +139,9 @@ admin_article:
         meta.title: "Edit content"
         title: "%name%"
         breadcrumb: "Edit content"
+        render_error: "An error has been produced during the page compilation, check the configuration."
+        validation_error: "Changes has not been saved, this page has some errors, check the configuration."
+        success_saved: "Changes has been saved."
         actions:
             save.button: "Save version"
             save_and_exit.button: "Save and exit"
@@ -148,15 +169,17 @@ admin_article:
 
     form:
         name.label: "Name"
-        site.label: "Site"
+        sites.label: "Sites"
         title.label: "Title"
         description.label: "Excerpt"
         publishedAt.label: "Publish date"
+        author.label: "Author"
         routes:
             0.label: ""
             label: "Routes"
             id.label: "Route id"
-            site.label: "Site"
+            sites.label: "Sites"
+            parent.label: "Parent route"
             paths:
                 label: "URLs"
                 path.label: "URL segment"

@@ -19,7 +19,10 @@ admin_article:
     
     publish:
         version_has_been_published_flash: "La versión se ha publicado"
-        
+
+    unpublish:
+        has_been_unpublished_flash: "La página se ha despublicado"
+
     import:
         meta.title: "Importar artículo"
         title: "Importar artículo"
@@ -30,10 +33,24 @@ admin_article:
         form:
             file.label: "Fichero a importar"
 
+    import_version:
+        meta.title: "Importar versión"
+        title: "Importar versión"
+        breadcrumb: "Importar versión"
+        actions:
+            import.button: "Importar versión"
+            cancel.button: "Cancelar"
+        form:
+            file.label: "Fichero a importar"
+
     read:
         meta.title: "General"
         title: "%name%"
         breadcrumb: "General"
+        actions:
+            unpublish:
+                confirm: "¿estás seguro de despublicar esta página?"
+                link: "Despublicar"
 
     versions:
         meta.title: "Versiones"
@@ -57,6 +74,7 @@ admin_article:
             preview.link: "Previsualizar"
             export.link: "Exportar"
             publish.link: "Publicar versión"
+            import_version.link: "Importar versión"
             cleanup_versions.link: "Limpiar versiones"
             keep.link: "Mantener versión, pinchar para desmarcar"
             nokeep.link: "No mantener esta versión, pinchar para mantener"
@@ -121,6 +139,9 @@ admin_article:
         meta.title: "Editar contenido"
         title: "%name%"
         breadcrumb: "Editar contenido"
+        render_error: "Se ha producido un error al compilar la página, revisa la configuración."
+        validation_error: "Los cambios no se han guardado, la página tiene algunos errores, revisa la configuración."
+        success_saved: "Los cambios se han guardado."
         actions:
             save.button: "Guardar cambios"
             save_and_exit.button: "Guardar y salir"
@@ -148,15 +169,17 @@ admin_article:
 
     form:
         name.label: "Nombre"
-        site.label: "Site"
+        sites.label: "Sites"
         title.label: "Título"
         description.label: "Excerpt"
         publishedAt.label: "Fecha publicación"
+        author.label: "Autor"
         routes:
             0.label: ""
             label: "Rutas"
             id.label: "Identificador"
-            site.label: "Site"
+            sites.label: "Sites"
+            parent.label: "Ruta padre"
             paths:
                 label: "URLs"
                 path.label: "Segmento de URL"
