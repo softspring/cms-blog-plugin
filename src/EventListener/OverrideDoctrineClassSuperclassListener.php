@@ -24,8 +24,10 @@ class OverrideDoctrineClassSuperclassListener
         $metadata = $eventArgs->getClassMetadata();
         $class = $metadata->getReflectionClass();
 
-        foreach ($this->superclassList as $superclassList) if ($class->getName() === $superclassList) {
-            $metadata->isMappedSuperclass = true;
+        foreach ($this->superclassList as $superclassList) {
+            if ($class->getName() === $superclassList) {
+                $metadata->isMappedSuperclass = true;
+            }
         }
     }
 }

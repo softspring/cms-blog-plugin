@@ -36,7 +36,7 @@ class SfsCmsBlogExtension extends Extension implements PrependExtensionInterface
     {
         $superClassList = [];
 
-        if ($container->getParameter('sfs_cms_blog.article.class') !== ArticleContent::class) {
+        if (ArticleContent::class !== $container->getParameter('sfs_cms_blog.article.class')) {
             $superClassList[] = ArticleContent::class;
         }
 
