@@ -15,6 +15,9 @@
         "friendsofphp/php-cs-fixer": "^3.14",
         "phpstan/phpstan": "^1.9"
     },
+    "suggest": {
+        "softspring/user-bundle": "If you want to use users as blog authors"
+    },
     "autoload": {
         "psr-4": {
             "Softspring\\CmsBlogBundle\\": "src/"
