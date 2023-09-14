@@ -1,0 +1,4 @@
+Publicado {{ article.publishedAt|time_ago|lower }}
+{% if article.author|default(false) %}
+    Por {{ article.author.displayName }}
+{% endif %}

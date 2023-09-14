@@ -1,0 +1,6 @@
+block:
+    revision: 1
+    static: true
+    esi: false # ESI render in block_render template
+    singleton: true
+    render_template: '@block/article_header_data/block_render.html.twig'

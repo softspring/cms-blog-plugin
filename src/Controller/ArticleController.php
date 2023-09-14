@@ -54,4 +54,13 @@ class ArticleController extends AbstractController
 
         return $this->render('@block/article_list/render.html.twig', $viewData);
     }
+
+    public function headerData(string $article): Response
+    {
+        $article = $this->contentManager->getRepository('article')->findOneById($article);
+
+        return $this->render('@block/article_header_data/render.html.twig', [
+            'article' => $article,
+        ]);
+    }
 }

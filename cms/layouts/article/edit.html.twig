@@ -9,12 +9,7 @@
                 <p data-lang="{{ locale }}">{{ description }}</p>
             {% endfor %}
 
-            <p>
-                <em>
-                    Publicado {{ entity.publishedAt|time_ago|lower }}
-                </em>
-            </p>
-
+            {{ sfs_cms_block_by_type('article_header_data', {'article': entity.id}) }}
 
             {{ form_row(form.data.main) }}
         </div>

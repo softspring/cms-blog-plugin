@@ -4,3 +4,7 @@ cms_blog_block_article_list:
 #    controller: Softspring\CmsBundle\Controller\BlockController::renderByType
 #    defaults:
 #        type: article_list
+
+cms_blog_block_article_header_data:
+    path: /_blog_blocks/{article}/article-header-data
+    controller: Softspring\CmsBlogBundle\Controller\ArticleController::headerData
