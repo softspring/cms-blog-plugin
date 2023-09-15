@@ -1,4 +1,6 @@
-Publicado {{ article.publishedAt|time_ago|lower }}
+{% trans_default_domain 'sfs_cms_blocks' %}
+
+{{ 'article_header_data.published_on'|trans({'%date%': article.publishedAt|time_ago|lower}) }}
 {% if article.author|default(false) %}
-    Por {{ article.author.displayName }}
+    {{ 'article_header_data.author'|trans({'%author%': article.author.displayName}) }}
 {% endif %}

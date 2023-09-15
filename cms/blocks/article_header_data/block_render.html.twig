@@ -1,3 +1,3 @@
 {% if app.request.attributes.has('article') %}
-    {{ render_esi(url('cms_blog_block_article_header_data', {'article':app.request.attributes.get('article')})) }}
+    {{ render_esi(url('cms_blog_block_article_header_data', {'article':app.request.attributes.get('article'), '_locale': app.request.locale})) }}
 {% endif %}

@@ -1,0 +1,5 @@
+article_header_data:
+    name: "Article header data"
+    published_on: "Published on %date%"
+    published_on_not_yet: "without publish date"
+    author: "By %author%"

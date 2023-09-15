@@ -1,10 +1,7 @@
 cms_blog_block_article_list:
     path: /_blog_blocks/article-list
     controller: Softspring\CmsBlogBundle\Controller\ArticleController::listBlock
-#    controller: Softspring\CmsBundle\Controller\BlockController::renderByType
-#    defaults:
-#        type: article_list
 
 cms_blog_block_article_header_data:
     path: /_blog_blocks/{article}/article-header-data
-    controller: Softspring\CmsBlogBundle\Controller\ArticleController::headerData
+    controller: Softspring\CmsBlogBundle\Controller\ArticleController::headerDataBlock

@@ -8,6 +8,7 @@ use Softspring\Component\DoctrinePaginator\Paginator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Translation\LocaleSwitcher;
 
 class ArticleController extends AbstractController
 {
@@ -55,8 +56,10 @@ class ArticleController extends AbstractController
         return $this->render('@block/article_list/render.html.twig', $viewData);
     }
 
-    public function headerData(string $article): Response
+    public function headerDataBlock(string $article, Request $request, LocaleSwitcher $localeSwitcher): Response
     {
+        $request->query->has('_locale') && $localeSwitcher->setLocale($request->query->get('_locale'));
+
         $article = $this->contentManager->getRepository('article')->findOneById($article);
 
         return $this->render('@block/article_header_data/render.html.twig', [
