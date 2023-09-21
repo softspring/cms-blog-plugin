@@ -1,6 +1,6 @@
 article_list:
     label: "Listado de artículos"
-    prototype_button_icon: ""
+    prototype_button_icon: '<i class="bi bi-list-stars"></i>'
     prototype_button: "Listado de artículos"
     form:
         site_filter.label: "Sitios"
