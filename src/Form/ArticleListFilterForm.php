@@ -1,8 +1,8 @@
 <?php
 
-namespace Softspring\CmsBlogBundle\Form;
+namespace Softspring\CmsBlogPlugin\Form;
 
-use Softspring\CmsBlogBundle\Entity\ArticleContent;
+use Softspring\CmsBlogPlugin\Entity\ArticleContent;
 use Softspring\Component\DoctrinePaginator\Form\PaginatorForm;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;

@@ -1,7 +1,7 @@
 {
-    "name": "softspring/cms-blog-bundle",
+    "name": "softspring/cms-blog-plugin",
     "description": "A Blog extension for softspring cms",
-    "type": "symfony-bundle",
+    "type": "sfs-cms-plugin",
     "license": "MIT",
     "minimum-stability": "dev",
     "prefer-stable": false,
@@ -20,7 +20,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Softspring\\CmsBlogBundle\\": "src/"
+            "Softspring\\CmsBlogPlugin\\": "src/"
         }
     },
     "config": {

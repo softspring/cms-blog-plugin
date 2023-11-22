@@ -1,12 +1,12 @@
 <?php
 
-namespace Softspring\CmsBlogBundle\DependencyInjection;
+namespace Softspring\CmsBlogPlugin\DependencyInjection;
 
 use Scienta\DoctrineJsonFunctions\Query\AST\Functions\Mariadb\JsonValue;
 use Scienta\DoctrineJsonFunctions\Query\AST\Functions\Mysql\JsonExtract;
 use Scienta\DoctrineJsonFunctions\Query\AST\Functions\Mysql\JsonSearch;
-use Softspring\CmsBlogBundle\Entity\ArticleContent;
-use Softspring\CmsBlogBundle\Model\ArticleContentInterface;
+use Softspring\CmsBlogPlugin\Entity\ArticleContent;
+use Softspring\CmsBlogPlugin\Model\ArticleContentInterface;
 use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -61,7 +61,7 @@ class SfsCmsBlogExtension extends Extension implements PrependExtensionInterface
         $doctrineConfig['orm']['resolve_target_entities'][ArticleContentInterface::class] = ArticleContent::class;
 
         // disable auto-mapping for this bundle to prevent mapping errors
-        $doctrineConfig['orm']['mappings']['SfsCmsBlogBundle'] = [
+        $doctrineConfig['orm']['mappings']['SfsCmsBlogPlugin'] = [
             'is_bundle' => true,
             'mapping' => true,
         ];
@@ -70,7 +70,7 @@ class SfsCmsBlogExtension extends Extension implements PrependExtensionInterface
 
         $cmsConfig = [
             'collections' => [
-                'vendor/softspring/cms-blog-bundle/cms',
+                'vendor/softspring/cms-blog-plugin/cms',
             ],
         ];
 
@@ -78,7 +78,7 @@ class SfsCmsBlogExtension extends Extension implements PrependExtensionInterface
 
         $container->prependExtensionConfig('doctrine_migrations', [
             'migrations_paths' => [
-                'Softspring\CmsBlogBundle\Migrations' => '@SfsCmsBlogBundle/src/Migrations',
+                'Softspring\CmsBlogPlugin\Migrations' => '@SfsCmsBlogPlugin/src/Migrations',
             ],
         ]);
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace Softspring\CmsBlogBundle\Controller;
+namespace Softspring\CmsBlogPlugin\Controller;
 
-use Softspring\CmsBlogBundle\Form\ArticleListFilterForm;
+use Softspring\CmsBlogPlugin\Form\ArticleListFilterForm;
 use Softspring\CmsBundle\Manager\ContentManagerInterface;
 use Softspring\Component\DoctrinePaginator\Paginator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

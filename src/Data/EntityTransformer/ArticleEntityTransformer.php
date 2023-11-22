@@ -1,8 +1,8 @@
 <?php
 
-namespace Softspring\CmsBlogBundle\Data\EntityTransformer;
+namespace Softspring\CmsBlogPlugin\Data\EntityTransformer;
 
-use Softspring\CmsBlogBundle\Model\ArticleContentInterface;
+use Softspring\CmsBlogPlugin\Model\ArticleContentInterface;
 use Softspring\CmsBundle\Data\EntityTransformer\ContentEntityTransformer;
 use Softspring\CmsBundle\Data\Exception\InvalidElementException;
 use Softspring\CmsBundle\Data\ReferencesRepository;

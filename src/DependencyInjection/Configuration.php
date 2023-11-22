@@ -1,6 +1,6 @@
 <?php
 
-namespace Softspring\CmsBlogBundle\DependencyInjection;
+namespace Softspring\CmsBlogPlugin\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -17,7 +17,7 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('article')
                     ->addDefaultsIfNotSet()
                     ->children()
-                        ->scalarNode('class')->defaultValue('Softspring\CmsBlogBundle\Entity\ArticleContent')->end()
+                        ->scalarNode('class')->defaultValue('Softspring\CmsBlogPlugin\Entity\ArticleContent')->end()
                     ->end()
                 ->end()
             ->end()

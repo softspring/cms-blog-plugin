@@ -4,18 +4,18 @@ services:
         autoconfigure: true
         public: false
 
-    Softspring\CmsBlogBundle\Controller\:
+    Softspring\CmsBlogPlugin\Controller\:
         resource: '../../src/Controller/*'
         tags: ['controller.service_arguments']
 
-    Softspring\CmsBlogBundle\Form\:
+    Softspring\CmsBlogPlugin\Form\:
         resource: '../../src/Form/*'
         tags: ['form.type']
 
-    Softspring\CmsBlogBundle\Data\:
+    Softspring\CmsBlogPlugin\Data\:
         resource: '../../src/Data/*'
 
-    Softspring\CmsBlogBundle\EventListener\OverrideDoctrineClassSuperclassListener:
+    Softspring\CmsBlogPlugin\EventListener\OverrideDoctrineClassSuperclassListener:
         arguments:
             $superclassList: '%sfs_cms_blog.convert_superclass_list%'
         tags:

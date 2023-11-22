@@ -1,8 +1,8 @@
 <?php
 
-namespace Softspring\CmsBlogBundle\Form\Admin\Article;
+namespace Softspring\CmsBlogPlugin\Form\Admin\Article;
 
-use Softspring\CmsBlogBundle\Model\ArticleAuthorInterface;
+use Softspring\CmsBlogPlugin\Model\ArticleAuthorInterface;
 use Softspring\CmsBundle\Form\Admin\Content\ContentCreateForm;
 use Softspring\CmsBundle\Form\Type\UserType;
 use Softspring\CmsBundle\Manager\ContentManagerInterface;

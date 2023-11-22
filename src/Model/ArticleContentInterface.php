@@ -1,6 +1,6 @@
 <?php
 
-namespace Softspring\CmsBlogBundle\Model;
+namespace Softspring\CmsBlogPlugin\Model;
 
 use Softspring\CmsBundle\Model\ContentInterface;
 

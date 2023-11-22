@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Softspring\CmsBlogBundle\Migrations;
+namespace Softspring\CmsBlogPlugin\Migrations;
 
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;

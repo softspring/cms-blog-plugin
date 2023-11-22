@@ -1,6 +1,6 @@
 <?php
 
-namespace Softspring\CmsBlogBundle\EventListener;
+namespace Softspring\CmsBlogPlugin\EventListener;
 
 use Doctrine\ORM\Event\LoadClassMetadataEventArgs;
 use Doctrine\ORM\Mapping\ClassMetadataInfo;

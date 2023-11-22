@@ -1,9 +1,9 @@
 <?php
 
-namespace Softspring\CmsBlogBundle\Entity;
+namespace Softspring\CmsBlogPlugin\Entity;
 
-use Softspring\CmsBlogBundle\Model\ArticleContentInterface;
-use Softspring\CmsBlogBundle\Model\ArticleContentTrait;
+use Softspring\CmsBlogPlugin\Model\ArticleContentInterface;
+use Softspring\CmsBlogPlugin\Model\ArticleContentTrait;
 use Softspring\CmsBundle\Entity\Content;
 use Softspring\CmsBundle\Model\ContentVersionInterface;
 
