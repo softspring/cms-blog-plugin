@@ -7,6 +7,11 @@ use Softspring\CmsBundle\Plugin\SfsCmsPlugin;
 
 class SfsCmsBlogPlugin extends SfsCmsPlugin
 {
+    public function getPath(): string
+    {
+        return \dirname(__DIR__);
+    }
+
     protected function getTargetEntities(): array
     {
         return [
