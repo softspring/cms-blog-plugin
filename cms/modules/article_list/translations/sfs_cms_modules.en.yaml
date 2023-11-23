@@ -1,0 +1,10 @@
+article_list:
+    label: "Article list"
+    prototype_button_icon: '<i class="bi bi-list-stars"></i>'
+    prototype_button: "Article list"
+    form:
+        _group:
+            filters: "Filters"
+            others: "Others"
+        site_filter.label: "Sites"
+        locale_filter.label: "Languages"

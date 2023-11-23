@@ -3,5 +3,8 @@ article_list:
     prototype_button_icon: '<i class="bi bi-list-stars"></i>'
     prototype_button: "Listado de artículos"
     form:
+        _group:
+            filters: "Filtros"
+            others: "Otros"
         site_filter.label: "Sitios"
         locale_filter.label: "Idiomas"
