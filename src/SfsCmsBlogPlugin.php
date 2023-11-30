@@ -19,7 +19,7 @@ class SfsCmsBlogPlugin extends SfsCmsPlugin
                 'parameterName' => 'sfs_cms_blog.article.class',
                 'interface' => ArticleContentInterface::class,
                 'required' => true,
-            ]
+            ],
         ];
     }
 
