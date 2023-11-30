@@ -12,8 +12,8 @@
         "softspring/time-ago-bundle": "^5.2@dev"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^3.14",
-        "phpstan/phpstan": "^1.9"
+        "friendsofphp/php-cs-fixer": "^3.40",
+        "phpstan/phpstan": "^1.10"
     },
     "suggest": {
         "softspring/user-bundle": "If you want to use users as blog authors"
