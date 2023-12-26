@@ -1,7 +1,6 @@
 admin_article:
     entity_not_found_flash: "El artículo no se ha encontrado"
-    module_not_configured: "Can not edit this article version because of %module% module is not configured. Maybe the version has been imported from another project or this module has been removed. Please talk to developers."
-    
+
     tabs_menu:
         details: "General"
         update: "Editar"
@@ -18,8 +17,9 @@ admin_article:
             create.button: "Crear artículo"
             cancel.button: "Cancelar"
     
-    publish:
-        version_has_been_published_flash: "La versión se ha publicado"
+    version_publish:
+        success_flash: "La versión se ha publicado"
+        failed_flash: "Se ha producido un error al publicar la versión"
 
     unpublish:
         has_been_unpublished_flash: "La página se ha despublicado"
@@ -149,6 +149,8 @@ admin_article:
             save_and_preview.button: "Guardar y previsualizar"
             save_and_publish.button: "Guardar y publicar"
             cancel.button: "Cancelar"
+    version_create:
+        module_not_configured: "Can not edit this article version because of %module% module is not configured. Maybe the version has been imported from another project or this module has been removed. Please talk to developers."
 
     list:
         meta.title: "Artículos"

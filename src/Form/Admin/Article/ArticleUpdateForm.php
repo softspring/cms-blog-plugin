@@ -20,7 +20,7 @@ class ArticleUpdateForm extends ContentCreateForm
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $entityClass = new \ReflectionClass($this->contentManager->getTypeClass($options['content']['_id']));
+        $entityClass = new \ReflectionClass($this->contentManager->getTypeClass($options['content_config']['_id']));
 
         parent::buildForm($builder, $options);
 
