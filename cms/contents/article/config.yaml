@@ -3,13 +3,14 @@ content:
     entity_class: 'Softspring\CmsBlogPlugin\Entity\ArticleContent'
 
     admin:
-#        list_view: '@content/article/admin/list.html.twig'
-        list_page_view: '@content/article/admin/list-page.html.twig'
-        create_type: 'Softspring\CmsBlogPlugin\Form\Admin\Article\ArticleCreateForm'
-        update_type: 'Softspring\CmsBlogPlugin\Form\Admin\Article\ArticleUpdateForm'
-##    #    content_form_type: 'App\Form\Admin\Cms\CertificateContentForm'
-        create_view: '@content/article/admin/create.html.twig'
-        update_view: '@content/article/admin/update.html.twig'
+        list:
+            page_view: '@content/article/admin/list-page.html.twig'
+        create:
+            type: 'Softspring\CmsBlogPlugin\Form\Admin\Article\ArticleCreateForm'
+            view: '@content/article/admin/create.html.twig'
+        update:
+            type: 'Softspring\CmsBlogPlugin\Form\Admin\Article\ArticleUpdateForm'
+            view: '@content/article/admin/update.html.twig'
 
     default_layout: 'article'
 
