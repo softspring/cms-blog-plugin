@@ -4,7 +4,7 @@
     "type": "sfs-cms-plugin",
     "license": "MIT",
     "minimum-stability": "dev",
-    "prefer-stable": false,
+    "prefer-stable": true,
     "require": {
         "php": ">=8.1",
         "softspring/cms-bundle": "^5.2@dev",
