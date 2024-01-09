@@ -1,3 +1,5 @@
+{% trans_default_domain 'sfs_cms_blocks' %}
+
 {% if not app.request.query.has('cms-edit') %}
     {{ form_start(filterForm,{attr:{'class':'search-form row row-cols-lg-auto g-3 align-items-center'}}) }}
     {{ form_row(filterForm.text,{attr:{'class':'col'}}) }}
@@ -7,11 +9,11 @@
 
     {% for article in articles %}
         <div class="border-bottom py-3 mb-3">
-        <p class="mb-2"><small><strong>Publicado {{ article.publishedAt|time_ago|lower }}</strong></small></p>
+        <p class="mb-2"><small><strong>{{  'article_list.published'|trans }} {{ article.publishedAt|time_ago|lower }}</strong></small></p>
         <h2><a href="{{ url(article.routes.first.id) }}">{{ article.extraData.title[app.request.locale]|default(article.name) }}</a></h2>
             <p class="mb-2"><a href="{{ url(article.routes.first.id) }}">{{ article.extraData.description[app.request.locale]|default }}</a></p>
                 <p class="text-end mb-0">
-                    <a href="{{ url(article.routes.first.id) }}" class="btn btn-link text-gray">Seguir leyendo<span class="h2 bi bi-chevron-right align-middle"></span></a>
+                    <a href="{{ url(article.routes.first.id) }}" class="btn btn-link text-gray">{{  'article_list.continue_reading'|trans }}<span class="h2 bi bi-chevron-right align-middle"></span></a>
                 </p>
         </div>
     {% endfor %}
@@ -25,12 +27,12 @@
 {% else %}
     {% for article in articles %}
         <div class="border-bottom py-3 mb-3">
-            <p class="mb-2"><small><strong>Publicado {{ article.publishedAt|time_ago|lower }}</strong></small></p>
+            <p class="mb-2"><small><strong>{{  'article_list.published'|trans }} {{ article.publishedAt|time_ago|lower }}</strong></small></p>
         <h2><a href="#">{{ article.extraData.title[app.request.locale]|default(article.name) }}</a></h2>
             <p class="mb-2">{{ article.extraData.description[app.request.locale]|default }}</p>
 
                         <p class="text-end mb-0">
-                            <a href="#" class="btn btn-link">Seguir leyendo<span class="h2 bi bi-chevron-right align-middle"></span></a>
+                            <a href="#" class="btn btn-link">{{  'article_list.continue_reading'|trans }}<span class="h2 bi bi-chevron-right align-middle"></span></a>
                         </p>
                     </div>
 

@@ -1,2 +1,4 @@
 article_list:
     name: "Article list"
+    published: "Publicado"
+    continue_reading: "Seguir leyendo"
