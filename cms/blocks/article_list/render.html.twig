@@ -1,15 +1,19 @@
 {% if not app.request.query.has('cms-edit') %}
-    {{ form_start(filterForm) }}
+    {{ form_start(filterForm,{attr:{'class':'search-form row row-cols-lg-auto g-3 align-items-center'}}) }}
+    {{ form_row(filterForm.text,{attr:{'class':'col'}}) }}
     {{ form_rest(filterForm) }}
-    <input type="submit" value="search" />
+    <button type="submit"  class="btn btn-primary"><span class="bi bi-search" ></span></button>
     {{ form_end(filterForm) }}
 
     {% for article in articles %}
+        <div class="border-bottom py-3 mb-3">
+        <p class="mb-2"><small><strong>Publicado {{ article.publishedAt|time_ago|lower }}</strong></small></p>
         <h2><a href="{{ url(article.routes.first.id) }}">{{ article.extraData.title[app.request.locale]|default(article.name) }}</a></h2>
-        <p>{{ article.extraData.description[app.request.locale]|default }}</p>
-        <em>Publicado {{ article.publishedAt|time_ago|lower }}</em>
-
-        <hr class="mb-5"/>
+            <p class="mb-2"><a href="{{ url(article.routes.first.id) }}">{{ article.extraData.description[app.request.locale]|default }}</a></p>
+                <p class="text-end mb-0">
+                    <a href="{{ url(article.routes.first.id) }}" class="btn btn-link text-gray">Seguir leyendo<span class="h2 bi bi-chevron-right align-middle"></span></a>
+                </p>
+        </div>
     {% endfor %}
 
     {% include '@SfsComponents/paginator/pager.html.twig' with {
@@ -20,11 +24,16 @@
     } %}
 {% else %}
     {% for article in articles %}
+        <div class="border-bottom py-3 mb-3">
+            <p class="mb-2"><small><strong>Publicado {{ article.publishedAt|time_ago|lower }}</strong></small></p>
         <h2><a href="#">{{ article.extraData.title[app.request.locale]|default(article.name) }}</a></h2>
-        <p>{{ article.extraData.description[app.request.locale]|default }}</p>
-        <em>Publicado {{ article.publishedAt|time_ago|lower }}</em>
+            <p class="mb-2">{{ article.extraData.description[app.request.locale]|default }}</p>
 
-        <hr class="mb-5"/>
+                        <p class="text-end mb-0">
+                            <a href="#" class="btn btn-link">Seguir leyendo<span class="h2 bi bi-chevron-right align-middle"></span></a>
+                        </p>
+                    </div>
+
     {% endfor %}
 
     {% include '@SfsComponents/paginator/pager.html.twig' with {
