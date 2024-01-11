@@ -6,16 +6,15 @@ use Softspring\CmsBlogPlugin\Model\ArticleAuthorInterface;
 use Softspring\CmsBundle\Form\Admin\Content\ContentCreateForm;
 use Softspring\CmsBundle\Form\Type\UserType;
 use Softspring\CmsBundle\Manager\ContentManagerInterface;
+use Softspring\CmsBundle\Translator\TranslatableContext;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class ArticleCreateForm extends ContentCreateForm
 {
-    protected ContentManagerInterface $contentManager;
-
-    public function __construct(ContentManagerInterface $contentManager)
+    public function __construct(protected ContentManagerInterface $contentManager, TranslatableContext $translatableContext)
     {
-        $this->contentManager = $contentManager;
+        parent::__construct($translatableContext);
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
