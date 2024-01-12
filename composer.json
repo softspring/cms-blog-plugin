@@ -12,6 +12,7 @@
         "softspring/time-ago-bundle": "^5.2@dev"
     },
     "require-dev": {
+        "symfony/translation": "^6.4",
         "friendsofphp/php-cs-fixer": "^3.40",
         "phpstan/phpstan": "^1.10"
     },

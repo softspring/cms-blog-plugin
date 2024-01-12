@@ -56,10 +56,8 @@ class ArticleController extends AbstractController
         return $this->render('@block/article_list/render.html.twig', $viewData);
     }
 
-    /**@phpstan-ignore-next-line until upgrade to SF >= 6 */
     public function headerDataBlock(string $article, Request $request, LocaleSwitcher $localeSwitcher = null): Response
     {
-        /**@phpstan-ignore-next-line until upgrade to SF >= 6 */
         $localeSwitcher && $request->query->has('_locale') && $localeSwitcher->setLocale($request->query->get('_locale'));
 
         $article = $this->contentManager->getRepository('article')->findOneById($article);
