@@ -1,20 +1,25 @@
+article:
+    name: "Article"
+
 admin_article:
-    entity_not_found_flash: "Article page not found"
+    entity_not_found_flash: "Article not found"
 
     tabs_menu:
         details: "General"
-        update: "Edit"
+        update: "Properties"
         seo: "SEO"
-        content: "Content (last version)"
-        preview: "Preview (last version)"
+        content: "Content"
+        preview: "Preview"
         versions: "Versions"
+        translations: "Translations"
+        delete: "Delete"
 
     create:
-        meta.title: "New article page"
-        title: "New article page"
-        breadcrumb: "New article page"
+        meta.title: "New article"
+        title: "New article"
+        breadcrumb: "New article"
         actions:
-            create.button: "Create article page"
+            create.button: "Create article"
             cancel.button: "Cancel"
     
     version_publish:
@@ -22,17 +27,20 @@ admin_article:
         failed_flash: "An error has been produced during the version publication"
 
     unpublish:
-        has_been_unpublished_flash: "The page has been unpublished"
+        has_been_unpublished_flash: "The article has been unpublished"
 
     import:
-        meta.title: "Import article page"
-        title: "Import article page"
-        breadcrumb: "Import article page"
+        meta.title: "Import article"
+        title: "Import article"
+        breadcrumb: "Import article"
         actions:
-            import.button: "Import article page"
+            import.button: "Import article"
             cancel.button: "Cancel"
         form:
             file.label: "Import content file"
+        failure_flash: "An error has been produced during the article import<br/><small>%exception%</small>"
+        duplicated_flash: "An error has been produced during the article import, the article already exists in the database, try to import it as a version<br/><small>%exception%</small>"
+        success_flash: "Article has been imported"
 
     import_version:
         meta.title: "Import version"
@@ -50,8 +58,31 @@ admin_article:
         breadcrumb: "General"
         actions:
             unpublish:
-                confirm: "are you sure to unpublish this page?"
+                confirm: "are you sure to unpublish this article?"
                 link: "Unpublish"
+        name: "Name"
+        sites: "Sites"
+        published: "Published"
+        unpublished: "Unpublished"
+        seo:
+            title: "SEO"
+            index: "Index"
+            links: "Links"
+            sitemap: "Sitemap"
+            sitemap.no: "no"
+            sitemap.yes: "yes"
+            edit.link: "Edit"
+        routes:
+            title: "Routes"
+            cache: "(cache %ttl% seconds)"
+            not_published_warning: "This content is not published, so the following routes will return a 404 error"
+        versions:
+            title: "Last versions"
+            published: "Published"
+            more.link: "More versions"
+        translations:
+            title: "Translations"
+            edit.link: "Edit"
 
     versions:
         meta.title: "Versions"
@@ -62,6 +93,7 @@ admin_article:
             origin.header: "Origin"
             created.header: "Created"
             publish_status.header: "Publish status"
+            note.header: "Note"
         publish_status:
             published: "published"
             unpublished: ""
@@ -70,6 +102,7 @@ admin_article:
             1: "edited"
             2: "fixture"
             3: "imported"
+            4: "translated"
         actions:
             edit.link: "Edit"
             preview.link: "Preview"
@@ -77,12 +110,16 @@ admin_article:
             publish.link: "Publish version"
             import_version.link: "Import version"
             cleanup_versions.link: "Cleanup versions"
+            translations.link: "Translations"
             keep.link: "Keep version, click to no keep"
             nokeep.link: "Do not keep version, click to keep"
+            info.link: "Info"
+            add_note.link: "Add note"
+
     preview:
-        meta.title: "Preview article page"
-        title: "%name%"
-        breadcrumb: "Preview article page"
+        meta.title: "Preview article"
+        title: "%name% (v%versionNumber%)"
+        breadcrumb: "Preview article"
         actions:
             open.button: "Open"
             cancel.button: "Back"
@@ -91,24 +128,30 @@ admin_article:
             published.button: "Published"
 
     translations:
-        meta.title: "Page translations"
-        title: "%name%"
-        breadcrumb: "Page translations"
+        meta.title: "Article translations"
+        title: "Article translations (v%versionNumber%)"
+        breadcrumb: "Article translations"
+        actions:
+            cancel.button: "Cancel"
+            save.button: "Save new version"
+            import_translations.link: "Import translations"
+            export_translations.link: "Export translations"
 
     update:
-        meta.title: "Edit article page"
+        meta.title: "Configure article"
         title: "%name%"
-        breadcrumb: "Edit article page"
+        breadcrumb: "Configure article"
         actions:
             update.button: "Save changes"
             cancel.button: "Cancel"
             delete.button: "Delete"
+        success_flash: "Article has been updated"
 
     delete:
-        meta.title: "Delete article page"
+        meta.title: "Delete article"
         title: "%name%"
-        breadcrumb: "Delete article page"
-        main_warnings_raw: '<p>Are you sure to delete this article page??</p><p>This action can not be undone</p>'
+        breadcrumb: "Delete article"
+        main_warnings_raw: '<p>Are you sure to delete this article??</p><p>This action can not be undone</p>'
         offer_backup: 'If you want, you can backup this content published version before deleting'
         index_warnings_raw: '<p><strong>Do not lose links and index!</strong></p>'
         actions:
@@ -117,16 +160,17 @@ admin_article:
             cancel.button: "Cancel"
         form:
             action:
-                label: "What do you want to do with this article page routes?"
+                label: "What do you want to do with this article routes?"
                 options:
                     delete: "Delete routes anyway"
-                    change: "Point to another article page (without redirect)"
+                    change: "Point to another article (without redirect)"
                     redirect: "Redirect to another route (permanent redirect)"
             content.label: "New content for the routes"
             symfonyRoute:
                 label: "Redirect to route"
                 route_name.label: "Route name"
                 route_params.label: "Parameters"
+        success_flash: "Article has been deleted"
 
     seo:
         meta.title: "Edit SEO"
@@ -135,13 +179,14 @@ admin_article:
         actions:
             save.button: "Save changes"
             cancel.button: "Cancel"
+        success_flash: "Article SEO has been updated"
 
     content:
         meta.title: "Edit content"
-        title: "%name%"
+        title: "%name% (new version from v%versionNumber%)"
         breadcrumb: "Edit content"
-        render_error: "An error has been produced during the page compilation, check the configuration."
-        validation_error: "Changes has not been saved, this page has some errors, check the configuration."
+        render_error: "An error has been produced during the article compilation, check the configuration."
+        validation_error: "Changes has not been saved, this article has some errors, check the configuration."
         success_saved: "Changes has been saved."
         actions:
             save.button: "Save version"
@@ -153,12 +198,12 @@ admin_article:
         module_not_configured: "Can not edit this article version because of %module% module is not configured. Maybe the version has been imported from another project or this module has been removed. Please talk to developers."
 
     list:
-        meta.title: "Article pages"
-        title: "Article pages"
-        breadcrumb: "Article pages"
+        meta.title: "Articles"
+        title: "Articles"
+        breadcrumb: "Articles"
         actions:
-            create.link: "New article page"
-            import.link: "Import article page"
+            create.link: "New article"
+            import.link: "Import article"
             details.link: "View"
             update.link: "Edit"
             preview.link: "Preview"
@@ -168,15 +213,18 @@ admin_article:
             name.header: "Name"
         filter_form:
             name.label: "Name"
-            site.label: "Site"
+            sites.label: "Sites"
+        empty:
+            create_first_content_raw: '<a href="%create_link%">Create</a> or <a href="%import_link%">import</a> your first article!'
+            can_not_create_content: "You can not create a new article"
+            go_to_doc_raw: 'If you need help go to <a href="https://github.com/softspring/cms-bundle" target="_blank">documentation</a>'
 
     form:
         name.label: "Name"
+        defaultLocale.label: "Default language"
+        locales.label: "Languages"
+        addLocale.label: "Add language"
         sites.label: "Sites"
-        title.label: "Title"
-        description.label: "Excerpt"
-        publishedAt.label: "Publish date"
-        author.label: "Author"
         routes:
             0.label: ""
             label: "Routes"
@@ -207,3 +255,68 @@ admin_article:
                     yearly: "yearly"
                     never: "never"
             sitemapPriority.label: "URL priority for sitemap"
+        title.label: "Article title"
+        description.label: "Excerpt"
+        publishedAt.label: "Visible published date time"
+        author.label: "Author"
+
+
+    version_form:
+        note.label: "Note"
+
+    version_lock:
+        success_locked_flash: "Version has been locked"
+        success_unlocked_flash: "Version has been unlocked"
+        failed_flash: "An error has been produced during the version lock/unlock"
+
+    version_export:
+        failed_flash: "An error has been produced during the version export"
+
+    version_import:
+        success_flash: "Version has been imported"
+        failed_flash: "An error has been produced during the version import"
+
+    version_cleanup:
+        success_flash: "Versions cleanup has been done correctly"
+
+    version_info:
+        meta.title: "Version info (v%versionNumber%)"
+        title: "Version info (v%versionNumber%)"
+        breadcrumb: "Version info (v%versionNumber%)"
+        info:
+            version.title: "Version"
+            origin.title: "Origin"
+            created.title: "Created"
+            publish_status.title: "Published"
+            keep.title: "Keep"
+            layout.title: "Layout"
+        actions:
+            save.button: "Save changes"
+            cancel.button: "Cancel"
+            recompile.link: "Recompile"
+        compiled:
+            title: "Compiled content"
+            error: "This content has some compilation errors, try to edit it to solve them or try to recompile"
+            pre_compile_content_disabled: "Content pre-compilation is disabled for this version"
+            pre_compile_modules_disabled: "Module pre-compilation is disabled for this version"
+        data:
+            title: "Data"
+        linked_routes:
+            title: "Linked routes"
+        linked_medias:
+            title: "Linked medias"
+        history:
+            title: "History"
+            action:
+                publish: "Published by %userName% at %date%"
+                unpublish: "Unpublished by %userName% at %date% (new version: %new_version%)"
+                lock: "Version protected by %userName% at %date%"
+                unlock: "Version unprotected by %userName% at %date%"
+                recompile: "Version recompiled by %userName% at %date%"
+                create: "Created by %userName% at %date%"
+        metadata:
+            title: "Metadata"
+
+    version_recompile:
+        success_flash: "Version has been recompiled"
+        failed_flash: "An error has been produced during the version recompilation"

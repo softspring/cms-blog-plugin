@@ -1,13 +1,18 @@
+article:
+    name: "Artículo"
+
 admin_article:
     entity_not_found_flash: "El artículo no se ha encontrado"
 
     tabs_menu:
         details: "General"
-        update: "Editar"
+        update: "Propiedades"
         seo: "SEO"
-        content: "Contenido (ultima versión)"
-        preview: "Previsualizar (ultima versión)"
+        content: "Contenido"
+        preview: "Previsualizar"
+        translations: "Traducciones"
         versions: "Versiones"
+        delete: "Eliminar"
 
     create:
         meta.title: "Nuevo artículo"
@@ -19,10 +24,10 @@ admin_article:
     
     version_publish:
         success_flash: "La versión se ha publicado"
-        failed_flash: "Se ha producido un error al publicar la versión"
+        failed_flash: "Se ha producido un error al publicar la versión<br/><small>%exception%</small>"
 
     unpublish:
-        has_been_unpublished_flash: "La página se ha despublicado"
+        has_been_unpublished_flash: "El artículo se ha despublicado"
 
     import:
         meta.title: "Importar artículo"
@@ -33,6 +38,9 @@ admin_article:
             cancel.button: "Cancelar"
         form:
             file.label: "Fichero a importar"
+        failure_flash: "Se ha producido un error al importar el artículo<br/><small>%exception%</small>"
+        duplicated_flash: "Se ha producido un error al importar el artículo, el artículo ya existe en la base de datos, intenta importarla como versión<br/><small>%exception%</small>"
+        success_flash: "El artículo se ha importado"
 
     import_version:
         meta.title: "Importar versión"
@@ -50,8 +58,31 @@ admin_article:
         breadcrumb: "General"
         actions:
             unpublish:
-                confirm: "¿estás seguro de despublicar esta página?"
+                confirm: "¿estás seguro de despublicar esto artículo?"
                 link: "Despublicar"
+        name: "Nombre"
+        sites: "Sitios"
+        published: "Publicada"
+        unpublished: "Despublicada"
+        seo:
+            title: "SEO"
+            index: "Indexar"
+            links: "Enlaces"
+            sitemap: "Mapa de sitio"
+            sitemap.no: "no"
+            sitemap.yes: "sí"
+            edit.link: "Editar"
+        routes:
+            title: "Rutas"
+            cache: "(cache %ttl% segundos)"
+            not_published_warning: "Este contenido no está publicado, por lo tanto las siguientes rutas devolverán un error 404"
+        versions:
+            title: "Últimas versiones"
+            published: "publicada"
+            more.link: "Ver más versiones"
+        translations:
+            title: "Traducciones"
+            edit.link: "Editar"
 
     versions:
         meta.title: "Versiones"
@@ -62,6 +93,7 @@ admin_article:
             origin.header: "Origen"
             created.header: "Creación"
             publish_status.header: "Publicación"
+            note.header: "Nota"
         publish_status:
             published: "publicada"
             unpublished: ""
@@ -70,6 +102,7 @@ admin_article:
             1: "editado"
             2: "fixture"
             3: "cargada"
+            4: "traducida"
         actions:
             edit.link: "Editar"
             preview.link: "Previsualizar"
@@ -77,11 +110,15 @@ admin_article:
             publish.link: "Publicar versión"
             import_version.link: "Importar versión"
             cleanup_versions.link: "Limpiar versiones"
+            translations.link: "Traducciones"
             keep.link: "Mantener versión, pinchar para desmarcar"
             nokeep.link: "No mantener esta versión, pinchar para mantener"
+            info.link: "Info"
+            add_note.link: "Añadir nota"
+
     preview:
         meta.title: "Previsualizar artículo"
-        title: "%name%"
+        title: "%name% (v%versionNumber%)"
         breadcrumb: "Previsualizar artículo"
         actions:
             open.button: "Abrir"
@@ -91,18 +128,24 @@ admin_article:
             published.button: "Publicada"
 
     translations:
-        meta.title: "Traducciones de la artículo"
-        title: "%name%"
-        breadcrumb: "Traducciones de la artículo"
+        meta.title: "Traducciones de el artículo"
+        title: "Traducciones de el artículo (v%versionNumber%)"
+        breadcrumb: "Traducciones de el artículo"
+        actions:
+            cancel.button: "Cancelar"
+            save.button: "Guardar nueva versión"
+            import_translations.link: "Importar traducciones"
+            export_translations.link: "Exportar traducciones"
 
     update:
-        meta.title: "Editar artículo"
+        meta.title: "Configuración de el artículo"
         title: "%name%"
-        breadcrumb: "Editar artículo"
+        breadcrumb: "Configuración de el artículo"
         actions:
             update.button: "Guardar cambios"
             cancel.button: "Cancelar"
             delete.button: "Eliminar"
+        success_flash: "El artículo se ha actualizado"
 
     delete:
         meta.title: "Eliminar artículo"
@@ -112,12 +155,12 @@ admin_article:
         offer_backup: 'Si quieres puedes hacer un backup de la versión publicada de este contenido antes'
         index_warnings_raw: '<p><strong>¡No pierdas los enlaces e indexación!</strong></p>'
         actions:
-            export.button: Exportar
+            export.button: "Exportar"
             delete.button: "Eliminar definitivamente"
             cancel.button: "Cancelar"
         form:
             action:
-                label: "¿Qué te gustaría hacer con las rutas de esta artículo?"
+                label: "¿Qué te gustaría hacer con las rutas de esto artículo?"
                 options:
                     delete: "Eliminar rutas de todas formas"
                     change: "Apuntar a otro contenido (sin redirección)"
@@ -127,6 +170,7 @@ admin_article:
                 label: "Redirigir a ruta"
                 route_name.label: "Nombre de ruta"
                 route_params.label: "Parámetros"
+        success_flash: "El artículo se ha eliminado"
 
     seo:
         meta.title: "Editar SEO"
@@ -135,13 +179,14 @@ admin_article:
         actions:
             save.button: "Guardar cambios"
             cancel.button: "Cancelar"
+        success_flash: "El SEO de el artículo se ha actualizado"
 
     content:
         meta.title: "Editar contenido"
-        title: "%name%"
+        title: "%name% (nueva versión desde v%versionNumber%)"
         breadcrumb: "Editar contenido"
-        render_error: "Se ha producido un error al compilar la página, revisa la configuración."
-        validation_error: "Los cambios no se han guardado, la página tiene algunos errores, revisa la configuración."
+        render_error: "Se ha producido un error al compilar el artículo, revisa la configuración."
+        validation_error: "Los cambios no se han guardado, el artículo tiene algunos errores, revisa la configuración."
         success_saved: "Los cambios se han guardado."
         actions:
             save.button: "Guardar cambios"
@@ -168,15 +213,18 @@ admin_article:
             name.header: "Nombre"
         filter_form:
             name.label: "Nombre"
-            site.label: "Sitio"
+            sites.label: "Sitios"
+        empty:
+            create_first_content_raw: '<a href="%create_link%">Crea</a> o <a href="%import_link%">importa</a> tu primer artículo!'
+            can_not_create_content: "No puedes crear artículos"
+            go_to_doc_raw: 'Si necesitas ayuda visita la <a href="https://github.com/softspring/cms-bundle" target="_blank">documentación</a>'
 
     form:
         name.label: "Nombre"
+        defaultLocale.label: "Idioma por defecto"
+        locales.label: "Idiomas"
+        addLocale.label: "Añadir idioma"
         sites.label: "Sites"
-        title.label: "Título"
-        description.label: "Excerpt"
-        publishedAt.label: "Fecha publicación"
-        author.label: "Autor"
         routes:
             0.label: ""
             label: "Rutas"
@@ -207,3 +255,67 @@ admin_article:
                     yearly: "anualmente"
                     never: "nunca"
             sitemapPriority.label: "Prioridad de URL en el sitemap"
+        title.label: "Título del artículo"
+        description.label: "Excerpt"
+        publishedAt.label: "Fecha de publicación visible"
+        author.label: "Autor"
+
+    version_form:
+        note.label: "Nota"
+
+    version_lock:
+        success_locked_flash: "La versión se ha bloqueado"
+        success_unlocked_flash: "La versión se ha desbloqueado"
+        failed_flash: "Se ha producido un error al bloquear/desbloquear la versión<br/><small>%exception%</small>"
+
+    version_export:
+        failed_flash: "Se ha producido un error al exportar la versión<br/><small>%exception%</small>"
+
+    version_import:
+        success_flash: "La versión se ha importado"
+        failed_flash: "Se ha producido un error al importar la versión<br/><small>%exception%</small>"
+
+    version_cleanup:
+        success_flash: "Se ha realizado la limpieza de versiones correctamente"
+
+    version_info:
+        meta.title: "Información de la versión (v%versionNumber%)"
+        title: "Información de la versión (v%versionNumber%)"
+        breadcrumb: "Información de la versión (v%versionNumber%)"
+        info:
+            version.title: "Version"
+            origin.title: "Origen"
+            created.title: "Creada"
+            publish_status.title: "Publicada"
+            keep.title: "Keep"
+            layout.title: "Diseño"
+        actions:
+            save.button: "Guardar cambios"
+            cancel.button: "Cancelar"
+            recompile.link: "Recompilar"
+        compiled:
+            title: "Contenido compilado"
+            error: "Este contenido tiene errores en la compilación, trata de editarlo para resolverlos o de republicar"
+            pre_compile_content_disabled: "La pre-compilación de contenido está desactivada para esta versión"
+            pre_compile_modules_disabled: "La pre-compilación de módulos está desactivada para esta versión"
+        data:
+            title: "Datos"
+        linked_routes:
+            title: "Rutas vinculadas"
+        linked_medias:
+            title: "Medios vinculados"
+        history:
+            title: "Histórico"
+            action:
+                publish: "Publicada por %userName% el %date%"
+                unpublish: "Despublicada por %userName% el %date% (nueva versión: %new_version%)"
+                lock: "Versión marcada para mantener por %userName% el %date%"
+                unlock: "Versión marcada para no mantener por %userName% el %date%"
+                recompile: "Versión recompilada por %userName% el %date%"
+                create: "Creada por %userName% el %date%"
+        metadata:
+            title: "Metadatos"
+
+    version_recompile:
+        success_flash: "La versión se ha recompilado"
+        failed_flash: "Se ha producido un error al recompilar la versión<br/><small>%exception%</small>"
