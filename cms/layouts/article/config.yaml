@@ -1,4 +1,6 @@
 layout:
     revision: 1
+    compatible_contents:
+        - article
     containers:
         main: ~

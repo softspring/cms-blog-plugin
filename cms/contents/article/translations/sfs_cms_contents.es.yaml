@@ -1,5 +1,8 @@
 article:
     name: "Artículo"
+    status:
+        published: "Publicada"
+        draft: "Borrador"
 
 admin_article:
     entity_not_found_flash: "El artículo no se ha encontrado"
@@ -211,6 +214,8 @@ admin_article:
             id.header: "Identificador"
             site.header: "Sitio"
             name.header: "Nombre"
+            status.header: "Estado"
+            publishedAt.header: "Publicada"
         filter_form:
             name.label: "Nombre"
             sites.label: "Sitios"
