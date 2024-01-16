@@ -67,6 +67,8 @@ admin_article:
         sites: "Sites"
         published: "Published"
         unpublished: "Unpublished"
+        general:
+            author: "Author"
         seo:
             title: "SEO"
             index: "Index"
@@ -213,6 +215,7 @@ admin_article:
         fields:
             id.header: "Identifier"
             site.header: "Site"
+            author.header: "Author"
             name.header: "Name"
             status.header: "Status"
             publishedAt.header: "Published at"

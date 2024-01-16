@@ -67,6 +67,8 @@ admin_article:
         sites: "Sitios"
         published: "Publicada"
         unpublished: "Despublicada"
+        general:
+            author: "Autor"
         seo:
             title: "SEO"
             index: "Indexar"
@@ -213,6 +215,7 @@ admin_article:
         fields:
             id.header: "Identificador"
             site.header: "Sitio"
+            author.header: "Autor"
             name.header: "Nombre"
             status.header: "Estado"
             publishedAt.header: "Publicada"

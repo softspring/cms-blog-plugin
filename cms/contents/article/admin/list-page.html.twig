@@ -2,6 +2,11 @@
 
 {% for entity in entities %}
     <tr>
+        <td class="p-3">
+            <div class="rounded me-3">
+                <img src="{{ entity.author.avatarUrl }}" alt="{{ entity.author.name }}" class="rounded-circle" width="20" height="20" />
+            </div>
+        </td>
         <td class="p-3">{{ entity.name }}</td>
         <td class="p-3">{{ entity.sitesSorted|map((site) => site|sfs_cms_site_name)|join(', ') }}</td>
         <td class="p-3">{{ (content_type~'.status.'~entity.status)|trans }}</td>
