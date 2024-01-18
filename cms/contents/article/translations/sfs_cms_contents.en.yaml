@@ -68,6 +68,8 @@ admin_article:
         published: "Published"
         unpublished: "Unpublished"
         general:
+            status: "Status"
+            publishDate: "Publish date"
             author: "Author"
         seo:
             title: "SEO"
@@ -81,6 +83,7 @@ admin_article:
             title: "Routes"
             cache: "(cache %ttl% seconds)"
             not_published_warning: "This content is not published, so the following routes will return a 404 error"
+            missing_locale: "This content has not a route path for %missingLocale% language"
         versions:
             title: "Last versions"
             published: "Published"
@@ -97,11 +100,12 @@ admin_article:
             id.header: "Version"
             origin.header: "Origin"
             created.header: "Created"
+            creator.header: "Creator"
             publish_status.header: "Publish status"
             note.header: "Note"
         publish_status:
             published: "published"
-            unpublished: ""
+            unpublished: "not published"
         origin:
             "null": ""
             1: "edited"
@@ -112,7 +116,7 @@ admin_article:
             edit.link: "Edit"
             preview.link: "Preview"
             export.link: "Export"
-            publish.link: "Publish version"
+            publish.link: "Publish"
             import_version.link: "Import version"
             cleanup_versions.link: "Cleanup versions"
             translations.link: "Translations"
@@ -295,6 +299,7 @@ admin_article:
             version.title: "Version"
             origin.title: "Origin"
             created.title: "Created"
+            creator.title: "Creator"
             publish_status.title: "Published"
             keep.title: "Keep"
             layout.title: "Layout"

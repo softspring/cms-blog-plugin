@@ -68,6 +68,8 @@ admin_article:
         published: "Publicada"
         unpublished: "Despublicada"
         general:
+            status: "Estado"
+            publishDate: "Fecha de publicación"
             author: "Autor"
         seo:
             title: "SEO"
@@ -81,6 +83,7 @@ admin_article:
             title: "Rutas"
             cache: "(cache %ttl% segundos)"
             not_published_warning: "Este contenido no está publicado, por lo tanto las siguientes rutas devolverán un error 404"
+            missing_locale: "No hay segmento de URL configurador para el idioma %missingLocale%"
         versions:
             title: "Últimas versiones"
             published: "publicada"
@@ -97,11 +100,12 @@ admin_article:
             id.header: "Versión"
             origin.header: "Origen"
             created.header: "Creación"
+            creator.header: "Creador"
             publish_status.header: "Publicación"
             note.header: "Nota"
         publish_status:
             published: "publicada"
-            unpublished: ""
+            unpublished: "no publicada"
         origin:
             "null": ""
             1: "editado"
@@ -112,7 +116,7 @@ admin_article:
             edit.link: "Editar"
             preview.link: "Previsualizar"
             export.link: "Exportar"
-            publish.link: "Publicar versión"
+            publish.link: "Publicar"
             import_version.link: "Importar versión"
             cleanup_versions.link: "Limpiar versiones"
             translations.link: "Traducciones"
@@ -294,6 +298,7 @@ admin_article:
             version.title: "Version"
             origin.title: "Origen"
             created.title: "Creada"
+            creator.title: "Creador"
             publish_status.title: "Publicada"
             keep.title: "Keep"
             layout.title: "Diseño"
