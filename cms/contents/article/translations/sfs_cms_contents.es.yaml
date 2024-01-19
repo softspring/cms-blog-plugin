@@ -226,10 +226,12 @@ admin_article:
         filter_form:
             name.label: "Nombre"
             sites.label: "Sitios"
+            status.label: "Estado"
         empty:
             create_first_content_raw: '<a href="%create_link%">Crea</a> o <a href="%import_link%">importa</a> tu primer artículo!'
             can_not_create_content: "No puedes crear artículos"
             go_to_doc_raw: 'Si necesitas ayuda visita la <a href="https://github.com/softspring/cms-bundle" target="_blank">documentación</a>'
+            clean_filters: 'No se han encontrado artículos con tu búsqueda, <a href="%url%">limpia los filtros</a> para ver todos los artículos'
 
     form:
         name.label: "Nombre"
