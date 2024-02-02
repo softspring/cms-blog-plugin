@@ -13,7 +13,7 @@
     },
     "require-dev": {
         "symfony/translation": "^6.4",
-        "friendsofphp/php-cs-fixer": "^3.40",
+        "friendsofphp/php-cs-fixer": "3.48.*",
         "phpstan/phpstan": "^1.10"
     },
     "suggest": {
