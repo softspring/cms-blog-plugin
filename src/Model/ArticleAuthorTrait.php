@@ -2,18 +2,16 @@
 
 namespace Softspring\CmsBlogPlugin\Model;
 
-use Softspring\UserBundle\Model\UserInterface;
-
 trait ArticleAuthorTrait
 {
-    protected ?UserInterface $author;
+    protected ?AuthorInterface $author;
 
-    public function getAuthor(): ?UserInterface
+    public function getAuthor(): ?AuthorInterface
     {
         return $this->author;
     }
 
-    public function setAuthor(?UserInterface $author): void
+    public function setAuthor(?AuthorInterface $author): void
     {
         $this->author = $author;
     }

@@ -25,6 +25,7 @@ class SfsCmsBlogExtension extends Extension implements PrependExtensionInterface
 
         // configure article classes
         $container->setParameter('sfs_cms_blog.article.class', $config['article']['class']);
+        $container->setParameter('sfs_cms_blog.author.class', $config['author']['class']);
 
         $this->processDataClasses($container);
 

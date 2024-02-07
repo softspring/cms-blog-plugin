@@ -2,11 +2,9 @@
 
 namespace Softspring\CmsBlogPlugin\Model;
 
-use Softspring\UserBundle\Model\UserInterface;
-
 interface ArticleAuthorInterface
 {
-    public function getAuthor(): ?UserInterface;
+    public function getAuthor(): ?AuthorInterface;
 
-    public function setAuthor(?UserInterface $author): void;
+    public function setAuthor(?AuthorInterface $author): void;
 }

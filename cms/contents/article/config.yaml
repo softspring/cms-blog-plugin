@@ -6,6 +6,7 @@ content:
         list:
             view: '@content/article/admin/list.html.twig'
             page_view: '@content/article/admin/list-page.html.twig'
+            filter_form: 'Softspring\CmsBlogPlugin\Form\Admin\Article\ArticleListFilterForm'
         create:
             type: 'Softspring\CmsBlogPlugin\Form\Admin\Article\ArticleCreateForm'
             view: '@content/article/admin/create.html.twig'

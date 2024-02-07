@@ -20,6 +20,12 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('class')->defaultValue('Softspring\CmsBlogPlugin\Entity\ArticleContent')->end()
                     ->end()
                 ->end()
+                ->arrayNode('author')
+                    ->isRequired()
+                    ->children()
+                        ->scalarNode('class')->isRequired()->end()
+                    ->end()
+                ->end()
             ->end()
         ;
 

@@ -12,6 +12,10 @@
                 <option name="unsigned">true</option>
             </options>
         </field>
+
+        <many-to-one field="author" target-entity="Softspring\CmsBlogPlugin\Model\AuthorInterface">
+            <join-column name="author_id" on-delete="SET NULL" />
+        </many-to-one>
     </entity>
 
 </doctrine-mapping>

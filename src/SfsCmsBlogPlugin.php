@@ -2,8 +2,10 @@
 
 namespace Softspring\CmsBlogPlugin;
 
+use Softspring\CmsBlogPlugin\DependencyInjection\Compiler\ResolveDoctrineTargetEntityPass;
 use Softspring\CmsBlogPlugin\Model\ArticleContentInterface;
 use Softspring\CmsBundle\Plugin\SfsCmsPlugin;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 class SfsCmsBlogPlugin extends SfsCmsPlugin
 {
@@ -30,5 +32,11 @@ class SfsCmsBlogPlugin extends SfsCmsPlugin
         return [
             "$basePath/entities" => 'Softspring\CmsBlogPlugin\Entity',
         ];
+    }
+
+    public function build(ContainerBuilder $container): void
+    {
+        parent::build($container);
+        $container->addCompilerPass(new ResolveDoctrineTargetEntityPass());
     }
 }
