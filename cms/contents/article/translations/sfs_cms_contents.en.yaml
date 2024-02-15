@@ -16,6 +16,8 @@ admin_article:
         versions: "Versions"
         translations: "Translations"
         delete: "Delete"
+        routes: "Routes"
+        permissions: "Permissions"
 
     create:
         meta.title: "New article"
@@ -138,7 +140,7 @@ admin_article:
 
     translations:
         meta.title: "Article translations"
-        title: "Article translations (v%versionNumber%)"
+        title: "%name% (v%versionNumber%)"
         breadcrumb: "Article translations"
         actions:
             cancel.button: "Cancel"
@@ -155,6 +157,16 @@ admin_article:
             cancel.button: "Cancel"
             delete.button: "Delete"
         success_flash: "Article has been updated"
+
+    routes:
+        meta.title: "Configure routes"
+        title: "%name%"
+        breadcrumb: "Configure routes"
+        actions:
+            save.button: "Save changes"
+            cancel.button: "Cancel"
+            delete.button: "Delete"
+        success_flash: "Article routes have been updated"
 
     delete:
         meta.title: "Delete article"
@@ -296,7 +308,7 @@ admin_article:
 
     version_info:
         meta.title: "Version info (v%versionNumber%)"
-        title: "Version info (v%versionNumber%)"
+        title: "%name% (v%versionNumber%)"
         breadcrumb: "Version info (v%versionNumber%)"
         info:
             version.title: "Version"

@@ -5,7 +5,5 @@
     {% if form.extraData is defined %}{{ form_widget(form.extraData) }}{% endif %}
     {{ form_row(form.publishedAt) }}
     {% if form.author is defined %}{{ form_row(form.author) }}{% endif %}
-    {{ form_label(form.routes) }}
-    {{ form_widget(form.routes.0) }}
     {{ form_rest(form) }}
 {% endblock form_fields %}
