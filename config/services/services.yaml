@@ -4,6 +4,10 @@ services:
         autoconfigure: true
         public: false
 
+    _instanceof:
+        Softspring\CmsBundle\Manager\ContentEntityDuplicatorInterface:
+            tags: [ 'sfs_cms.content_entity_duplicator' ]
+
     Softspring\CmsBlogPlugin\Controller\:
         resource: '../../src/Controller/*'
         tags: ['controller.service_arguments']
@@ -14,6 +18,9 @@ services:
 
     Softspring\CmsBlogPlugin\Data\:
         resource: '../../src/Data/*'
+
+    Softspring\CmsBlogPlugin\Manager\:
+        resource: '../../src/Manager/*'
 
     Softspring\CmsBlogPlugin\EventListener\OverrideDoctrineClassSuperclassListener:
         arguments:
