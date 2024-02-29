@@ -261,7 +261,6 @@ admin_article:
         addLocale.label: "Añadir idioma"
         sites.label: "Sites"
         routes:
-            0.label: ""
             label: "Rutas"
             id.label: "Identificador"
             sites.label: "Sites"

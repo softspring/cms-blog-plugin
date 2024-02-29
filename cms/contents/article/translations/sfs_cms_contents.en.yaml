@@ -261,7 +261,6 @@ admin_article:
         addLocale.label: "Add language"
         sites.label: "Sites"
         routes:
-            0.label: ""
             label: "Routes"
             id.label: "Route id"
             sites.label: "Sites"
