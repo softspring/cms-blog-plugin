@@ -19,7 +19,7 @@ class ArticleEntityTransformer extends ContentEntityTransformer
         return false;
     }
 
-    public function export(object $element, &$files = [], object $contentVersion = null, string $contentType = null): array
+    public function export(object $element, &$files = [], ?object $contentVersion = null, ?string $contentType = null): array
     {
         if (!$element instanceof ArticleContentInterface) {
             throw new InvalidElementException(sprintf('%s dumper requires that $element to be an instance of %s, %s given.', get_called_class(), ArticleContentInterface::class, get_class($element)));

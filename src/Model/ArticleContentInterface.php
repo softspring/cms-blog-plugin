@@ -8,5 +8,5 @@ interface ArticleContentInterface extends ContentInterface
 {
     public function getPublishedAt(): ?\DateTime;
 
-    public function setPublishedAt(\DateTime $publishedAt = null): void;
+    public function setPublishedAt(?\DateTime $publishedAt = null): void;
 }

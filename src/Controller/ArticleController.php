@@ -56,7 +56,7 @@ class ArticleController extends AbstractController
         return $this->render('@block/article_list/render.html.twig', $viewData);
     }
 
-    public function headerDataBlock(string $article, Request $request, LocaleSwitcher $localeSwitcher = null): Response
+    public function headerDataBlock(string $article, Request $request, ?LocaleSwitcher $localeSwitcher = null): Response
     {
         $localeSwitcher && $request->query->has('_locale') && $localeSwitcher->setLocale($request->query->get('_locale'));
 
