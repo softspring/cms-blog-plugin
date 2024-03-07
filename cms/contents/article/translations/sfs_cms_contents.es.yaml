@@ -259,6 +259,7 @@ admin_article:
             sites.label: "Sitios"
             status.label: "Estado"
             author.label: "Autor"
+            publishedVersionContent.label: "Contenido publicado (distingue mayúsculas y minúsculas)"
         empty:
             create_first_content_raw: '<a href="%create_link%">Crea</a> o <a href="%import_link%">importa</a> tu primer artículo!'
             can_not_create_content: "No puedes crear artículos"
