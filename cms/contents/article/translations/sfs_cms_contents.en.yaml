@@ -26,6 +26,15 @@ admin_article:
         actions:
             create.button: "Create article"
             cancel.button: "Cancel"
+
+    duplicate:
+        meta.title: "Duplicate page"
+        title: "Duplicate page (%name%)"
+        breadcrumb: "Duplicate page"
+        actions:
+            duplicate.button: "Create page"
+            cancel.button: "Cancel"
+        success_flash: "Page has been duplicated"
     
     version_publish:
         success_flash: "Version has been published"
@@ -122,6 +131,7 @@ admin_article:
             3: "imported"
             4: "translated"
             5: "seo"
+            6: "duplicated"
         actions:
             edit.link: "Edit"
             preview.link: "Preview"
@@ -134,6 +144,7 @@ admin_article:
             nokeep.link: "Do not keep version, click to keep"
             info.link: "Info"
             add_note.link: "Add note"
+            delete.link: "Delete version"
 
     preview:
         meta.title: "Preview article"
@@ -260,6 +271,7 @@ admin_article:
         locales.label: "Languages"
         addLocale.label: "Add language"
         sites.label: "Sites"
+        duplicateVersion.label: "Duplicate version"
         routes:
             label: "Routes"
             id.label: "Route id"
@@ -351,10 +363,24 @@ admin_article:
                 lock: "Version protected by %userName% at %date%"
                 unlock: "Version unprotected by %userName% at %date%"
                 recompile: "Version recompiled by %userName% at %date%"
+                duplicate: "Page duplicated by %userName% at %date%"
                 create: "Created by %userName% at %date%"
+                seo: "SEO updated by %userName% at %date%"
         metadata:
             title: "Metadata"
 
     version_recompile:
         success_flash: "Version has been recompiled"
-        failed_flash: "An error has been produced during the version recompilation"
+        failed_flash: "An error has been produced during the version recompilation.<br/><small>%exception%</small>"
+
+    version_delete:
+        meta.title: "Delete version"
+        title: "%name% (v%versionNumber%)"
+        breadcrumb: "Delete version"
+        main_warnings_raw: '<p>Are you sure to delete this v%versionNumber% version?</p><p>This action can not be undone</p>'
+        offer_backup: 'If you want, you can backup this content version before deleting'
+        actions:
+            export.button: Export
+            delete.button: "Delete definitely"
+            cancel.button: "Cancel"
+        success_flash: "Version has been deleted"

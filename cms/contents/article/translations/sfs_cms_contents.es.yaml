@@ -26,6 +26,15 @@ admin_article:
         actions:
             create.button: "Crear artículo"
             cancel.button: "Cancelar"
+
+    duplicate:
+        meta.title: "Duplicar artículo"
+        title: "Duplicar artículo (%name%)"
+        breadcrumb: "Duplicar artículo"
+        actions:
+            duplicate.button: "Crear artículo"
+            cancel.button: "Cancelar"
+        success_flash: "El artículo se ha duplicado"
     
     version_publish:
         success_flash: "La versión se ha publicado"
@@ -122,6 +131,7 @@ admin_article:
             3: "cargada"
             4: "traducida"
             5: "seo"
+            6: "duplicada"
         actions:
             edit.link: "Editar"
             preview.link: "Previsualizar"
@@ -134,6 +144,7 @@ admin_article:
             nokeep.link: "No mantener esta versión, pinchar para mantener"
             info.link: "Info"
             add_note.link: "Añadir nota"
+            delete.link: "Eliminar versión"
 
     preview:
         meta.title: "Previsualizar artículo"
@@ -260,6 +271,7 @@ admin_article:
         locales.label: "Idiomas"
         addLocale.label: "Añadir idioma"
         sites.label: "Sites"
+        duplicateVersion.label: "Duplicar versión"
         routes:
             label: "Rutas"
             id.label: "Identificador"
@@ -286,7 +298,7 @@ admin_article:
                     monthly: "mensualmente"
                     yearly: "anualmente"
                     never: "nunca"
-                sitemapPriority.label: "Prioridad de URL en el sitemap"
+            sitemapPriority.label: "Prioridad de URL en el sitemap"
         seo:
             metaTitle.label: "Título (título del navegador y etiquetas meta)"
             metaDescription.label: "Descripción (etiqueta meta)"
@@ -351,10 +363,24 @@ admin_article:
                 lock: "Versión marcada para mantener por %userName% el %date%"
                 unlock: "Versión marcada para no mantener por %userName% el %date%"
                 recompile: "Versión recompilada por %userName% el %date%"
+                duplicate: "Página duplicada por %userName% el %date%"
                 create: "Creada por %userName% el %date%"
+                seo: "SEO actualizado por %userName% el %date%"
         metadata:
             title: "Metadatos"
 
     version_recompile:
         success_flash: "La versión se ha recompilado"
         failed_flash: "Se ha producido un error al recompilar la versión<br/><small>%exception%</small>"
+
+    version_delete:
+        meta.title: "Eliminar versión"
+        title: "%name% (v%versionNumber%)"
+        breadcrumb: "Eliminar versión"
+        main_warnings_raw: '<p>¿Estás seguro de eliminar esta versión v%versionNumber%?</p><p>Esta acción no se podrá deshacer.</p>'
+        offer_backup: 'Si quieres puedes hacer un backup de la versión antes de eliminarla'
+        actions:
+            export.button: "Exportar"
+            delete.button: "Eliminar definitivamente"
+            cancel.button: "Cancelar"
+        success_flash: "La versión se ha eliminado"
