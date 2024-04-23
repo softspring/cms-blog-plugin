@@ -1,0 +1,10 @@
+parameters:
+    ignoreErrors:
+        -
+            message: "#Parameter \\$localeSwitcher of method Softspring\\\\CmsBlogPlugin\\\\Controller\\\\ArticleController::headerDataBlock\\(\\) has invalid type Symfony\\\\Component\\\\Translation\\\\LocaleSwitcher.#"
+            path: src/Controller/ArticleController.php
+            reportUnmatched: false
+        -
+            message: "#Call to method setLocale\\(\\) on an unknown class Symfony\\\\Component\\\\Translation\\\\LocaleSwitcher.#"
+            path: src/Controller/ArticleController.php
+            reportUnmatched: false
