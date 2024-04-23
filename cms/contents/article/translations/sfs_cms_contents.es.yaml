@@ -245,7 +245,7 @@ admin_article:
             create.link: "Nuevo artículo"
             import.link: "Importar artículo"
             details.link: "Ver"
-            update.link: "Editar"
+            content.link: "Contenido"
             preview.link: "Previsualizar"
         fields:
             id.header: "Identificador"
