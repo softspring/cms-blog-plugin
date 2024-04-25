@@ -2,6 +2,7 @@
 
 namespace Softspring\CmsBlogPlugin\Data\EntityTransformer;
 
+use DateTime;
 use Softspring\CmsBlogPlugin\Model\ArticleContentInterface;
 use Softspring\CmsBundle\Data\EntityTransformer\ContentEntityTransformer;
 use Softspring\CmsBundle\Data\Exception\InvalidElementException;
@@ -37,7 +38,7 @@ class ArticleEntityTransformer extends ContentEntityTransformer
         /** @var ArticleContentInterface $article */
         $article = parent::import($data, $referencesRepository, $options);
 
-        $article->setPublishedAt($data['article']['published_at'] ? new \DateTime($data['article']['published_at']) : null);
+        $article->setPublishedAt($data['article']['published_at'] ? new DateTime($data['article']['published_at']) : null);
 
         return $article;
     }

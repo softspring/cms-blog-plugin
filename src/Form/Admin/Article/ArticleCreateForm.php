@@ -2,6 +2,7 @@
 
 namespace Softspring\CmsBlogPlugin\Form\Admin\Article;
 
+use ReflectionClass;
 use Softspring\CmsBlogPlugin\Model\ArticleAuthorInterface;
 use Softspring\CmsBundle\Form\Admin\Content\ContentCreateForm;
 use Softspring\CmsBundle\Form\Type\UserType;
@@ -19,7 +20,7 @@ class ArticleCreateForm extends ContentCreateForm
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $entityClass = new \ReflectionClass($this->contentManager->getTypeClass($options['content_config']['_id']));
+        $entityClass = new ReflectionClass($this->contentManager->getTypeClass($options['content_config']['_id']));
 
         parent::buildForm($builder, $options);
 

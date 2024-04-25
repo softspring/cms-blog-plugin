@@ -2,6 +2,7 @@
 
 namespace Softspring\CmsBlogPlugin\Entity;
 
+use DateTime;
 use Softspring\CmsBlogPlugin\Model\ArticleAuthorInterface;
 use Softspring\CmsBlogPlugin\Model\ArticleAuthorTrait;
 use Softspring\CmsBlogPlugin\Model\ArticleContentInterface;
@@ -19,7 +20,7 @@ class ArticleContent extends Content implements ArticleContentInterface, Article
         $this->publishedVersion = $publishedVersion;
 
         if (!$this->getPublishedAt()) {
-            $this->setPublishedAt(new \DateTime('now'));
+            $this->setPublishedAt(new DateTime('now'));
         }
     }
 }
