@@ -1,2 +1,6 @@
 article_list:
     name: "Article list"
+    form:
+        button: "Buscar"
+    list:
+        read_more: "Seguir leyendo"
