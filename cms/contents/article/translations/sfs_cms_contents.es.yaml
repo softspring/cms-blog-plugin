@@ -6,6 +6,8 @@ article:
 
 admin_article:
     entity_not_found_flash: "El artículo no se ha encontrado"
+    header_buttons:
+        duplicate: "Duplicar"
 
     tabs_menu:
         details: "General"
@@ -39,9 +41,13 @@ admin_article:
     version_publish:
         success_flash: "La versión se ha publicado"
         failed_flash: "Se ha producido un error al publicar la versión<br/><small>%exception%</small>"
+        confirm_message_title: "Publicar versión"
+        confirm_message_raw: "<p>¿Estás seguro de publicar esta versión?</p>"
 
     unpublish:
         has_been_unpublished_flash: "El artículo se ha despublicado"
+        confirm_message_title: "Despublicar artículo"
+        confirm_message_raw: "<p>¿Estás seguro de despublicar este artículo?</p><p>Mostrará un error 404 a los usuarios</p>"
 
     import:
         meta.title: "Importar artículo"
