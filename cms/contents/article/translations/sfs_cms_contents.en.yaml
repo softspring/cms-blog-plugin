@@ -6,6 +6,8 @@ article:
 
 admin_article:
     entity_not_found_flash: "Article not found"
+    header_buttons:
+        duplicate: "Duplicate"
 
     tabs_menu:
         details: "General"
@@ -26,6 +28,7 @@ admin_article:
         actions:
             create.button: "Create article"
             cancel.button: "Cancel"
+        success_flash: "Page has been created"
 
     duplicate:
         meta.title: "Duplicate page"
@@ -39,9 +42,13 @@ admin_article:
     version_publish:
         success_flash: "Version has been published"
         failed_flash: "An error has been produced during the version publication"
+        confirm_message_title: "Publish version"
+        confirm_message_raw: "<p>Are you sure to publish this version?</p>"
 
     unpublish:
         has_been_unpublished_flash: "The article has been unpublished"
+        confirm_message_title: "Unpublish article"
+        confirm_message_raw: "<p>Are you sure to unpublish this article?</p><p>It will show a 404 error to the users</p>"
 
     import:
         meta.title: "Import article"
