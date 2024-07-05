@@ -2,6 +2,10 @@ cms_blog_block_article_list:
     path: /_blog_blocks/article-list
     controller: Softspring\CmsBlogPlugin\Controller\ArticleController::listBlock
 
+cms_blog_block_article_latest_list:
+    path: /_blog_blocks/article-latest-list
+    controller: Softspring\CmsBlogPlugin\Controller\ArticleController::latestBlock
+
 cms_blog_block_article_header_data:
     path: /_blog_blocks/{article}/article-header-data
     controller: Softspring\CmsBlogPlugin\Controller\ArticleController::headerDataBlock

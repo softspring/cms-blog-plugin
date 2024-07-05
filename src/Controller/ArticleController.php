@@ -57,6 +57,41 @@ class ArticleController extends AbstractController
         return $this->render('@block/article_list/render.html.twig', $viewData);
     }
 
+    public function latestBlock(Request $request): Response
+    {
+        $locale = $this->setLocale($request);
+
+        $url = $request->headers->get('x-original-uri');
+        $query = [];
+        parse_str(parse_url($url, PHP_URL_QUERY), $query);
+        foreach ($query as $k => $v) {
+            $request->query->set($k, $v);
+        }
+
+        $repo = $this->contentManager->getRepository('article');
+
+        $qb = $repo->createQueryBuilder('a');
+        $qb->andWhere('a.publishedVersion IS NOT NULL');
+        $qb->andWhere('a.publishedAt <= '.time());
+        // tricky way to filter by locale, avoiding json functions
+        $qb->andWhere('a.locales LIKE :locale')->setParameter('locale', '%"'.$locale.'"%');
+
+        if ($request->query->has('current')) {
+            $qb->andWhere('a.id != :current')->setParameter('current', $request->query->get('current'));
+        }
+
+        $maxResults = $request->query->get('maxResults', 5);
+
+        $qb->addOrderBy('a.publishedAt', 'DESC');
+        $qb->setMaxResults($maxResults);
+
+        $viewData = [
+            'articles' => $qb->getQuery()->getResult(),
+        ];
+
+        return $this->render('@block/article_latest_list/render.html.twig', $viewData);
+    }
+
     public function headerDataBlock(string $article, Request $request): Response
     {
         $this->setLocale($request);
