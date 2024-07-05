@@ -12,15 +12,14 @@ use Symfony\Component\Translation\LocaleSwitcher;
 
 class ArticleController extends AbstractController
 {
-    protected ContentManagerInterface $contentManager;
-
-    public function __construct(ContentManagerInterface $contentManager)
+    public function __construct(protected ContentManagerInterface $contentManager, protected ?LocaleSwitcher $localeSwitcher = null)
     {
-        $this->contentManager = $contentManager;
     }
 
     public function listBlock(Request $request): Response
     {
+        $locale = $this->setLocale($request);
+
         $url = $request->headers->get('x-original-uri');
         $query = [];
         parse_str(parse_url($url, PHP_URL_QUERY), $query);
@@ -33,6 +32,8 @@ class ArticleController extends AbstractController
         $qb = $repo->createQueryBuilder('a');
         $qb->andWhere('a.publishedVersion IS NOT NULL');
         $qb->andWhere('a.publishedAt <= '.time());
+        // tricky way to filter by locale, avoiding json functions
+        $qb->andWhere('a.locales LIKE :locale')->setParameter('locale', '%"'.$locale.'"%');
         $qb->addOrderBy('a.publishedAt', 'DESC');
 
         $form = $this->createForm(ArticleListFilterForm::class, [], [
@@ -56,14 +57,23 @@ class ArticleController extends AbstractController
         return $this->render('@block/article_list/render.html.twig', $viewData);
     }
 
-    public function headerDataBlock(string $article, Request $request, ?LocaleSwitcher $localeSwitcher = null): Response
+    public function headerDataBlock(string $article, Request $request): Response
     {
-        $localeSwitcher && $request->query->has('_locale') && $localeSwitcher->setLocale($request->query->get('_locale'));
+        $this->setLocale($request);
 
         $article = $this->contentManager->getRepository('article')->findOneById($article);
 
         return $this->render('@block/article_header_data/render.html.twig', [
             'article' => $article,
         ]);
+    }
+
+    public function setLocale(Request $request): string
+    {
+        $locale = $request->query->get('_locale', $request->getLocale() ?: 'en');
+        $this->localeSwitcher && $this->localeSwitcher->setLocale($locale);
+        $request->setLocale($locale);
+
+        return $locale;
     }
 }
