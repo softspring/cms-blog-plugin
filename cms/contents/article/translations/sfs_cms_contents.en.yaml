@@ -350,6 +350,7 @@ admin_article:
             save.button: "Save changes"
             cancel.button: "Cancel"
             recompile.link: "Recompile"
+            clear_compiled.link: "Clear compiled content"
         compiled:
             title: "Compiled content"
             error: "This content has some compilation errors, try to edit it to solve them or try to recompile"

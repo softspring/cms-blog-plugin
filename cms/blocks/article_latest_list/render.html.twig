@@ -1,0 +1,10 @@
+{% trans_default_domain 'sfs_cms_blocks' %}
+
+<aside class="article-aside sticky-md-top pt-5">
+    <h2 class="article-aside__title">{{ 'article_latest_list.title'|trans }}</h2>
+    <ol class="article-aside__list">
+        {% for article in articles %}
+            <li class="article-aside__list-item"><h3 class="mb-0"><a href="{{ url(article.routes.first.id) }}" class="article-aside__list-item-title">{{ article.extraData.title[app.request.locale]|default(article.name) }}</a></h3></li>
+        {% endfor %}
+    </ol>
+</aside>
