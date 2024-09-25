@@ -1,10 +1,9 @@
+# CMS Blog Plugin
 
-*This plugin is under development, more features will be added soon, and existing ones may change.*
-
-[![Latest Stable Version](https://poser.pugx.org/softspring/cms-blog-plugin/v/stable.svg)](https://packagist.org/packages/softspring/cms-blog-plugin)
-[![Latest Unstable Version](https://poser.pugx.org/softspring/cms-blog-plugin/v/unstable.svg)](https://packagist.org/packages/softspring/cms-blog-plugin)
-[![License](https://poser.pugx.org/softspring/cms-blog-plugin/license.svg)](https://packagist.org/packages/softspring/cms-blog-plugin)
-[![PHP Version Require](http://poser.pugx.org/softspring/cms-blog-plugin/require/php)](https://packagist.org/packages/softspring/cms-blog-plugin)
-[![Total Downloads](https://poser.pugx.org/softspring/cms-blog-plugin/downloads)](https://packagist.org/packages/softspring/cms-blog-plugin)
-[![Build status](https://github.com/softspring/cms-blog-plugin/actions/workflows/php.yml/badge.svg?branch=5.3)](https://github.com/softspring/cms-blog-plugin/actions/workflows/php.yml)
+![Latest Stable](https://img.shields.io/packagist/v/softspring/cms-blog-plugin?label=stable&style=flat-square)
+![Latest Unstable](https://img.shields.io/packagist/v/softspring/cms-blog-plugin?label=unstable&style=flat-square&include_prereleases)
+![License](https://img.shields.io/packagist/l/softspring/cms-blog-plugin?style=flat-square)
+![PHP Version](https://img.shields.io/packagist/dependency-v/softspring/cms-blog-plugin/php?style=flat-square)
+![Downloads](https://img.shields.io/packagist/dt/softspring/cms-blog-plugin?style=flat-square)
+[![CI](https://img.shields.io/github/actions/workflow/status/softspring/cms-blog-plugin/php.yml?branch=5.3&style=flat-square&label=CI)](https://github.com/softspring/cms-blog-plugin/actions/workflows/php.yml)
 
