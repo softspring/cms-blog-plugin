@@ -9,13 +9,13 @@
         "php": ">=8.1",
         "softspring/cms-bundle": "^5.2",
         "scienta/doctrine-json-functions": "^5.2",
-        "softspring/time-ago-bundle": "^5.2"
+        "softspring/time-ago-bundle": "^5.2",
+        "symfony/translation": "^6.1|^7.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "3.54.*",
         "phpstan/phpstan": "^1.10",
-        "rector/rector": "^1.0",
-        "symfony/translation": "^5.4|^6.0|^7.0"
+        "rector/rector": "^1.0"
     },
     "suggest": {
         "softspring/user-bundle": "If you want to use users as blog authors"
