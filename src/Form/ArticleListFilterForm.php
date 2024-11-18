@@ -24,9 +24,9 @@ class ArticleListFilterForm extends PaginatorForm
     {
         parent::buildForm($builder, $options);
 
-//        $builder->add('text', TextType::class, [
-//            'translation_domain' => false,
-//            'mapped' => false,
-//        ]);
+        $builder->add('text', TextType::class, [
+            'translation_domain' => false,
+            'mapped' => false,
+        ]);
     }
 }
