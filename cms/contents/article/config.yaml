@@ -22,9 +22,9 @@ content:
 
     extra_fields:
         title:
-            type: 'translatable'
+            type: 'translation'
         description:
-            type: 'translatable'
+            type: 'translation'
             type_options:
                 type: 'textarea'
 
