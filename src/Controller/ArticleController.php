@@ -20,7 +20,7 @@ class ArticleController extends AbstractController
     {
         $locale = $this->setLocale($request);
 
-        $url = $request->headers->get('x-original-uri');
+        $url = $request->server->get('SFS_CMS_REQUEST_URI', $request->headers->get('x-original-uri'));
         $query = [];
         parse_str(parse_url($url, PHP_URL_QUERY), $query);
         foreach ($query as $k => $v) {
