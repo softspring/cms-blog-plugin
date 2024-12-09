@@ -32,8 +32,10 @@
         'query_params': query,
     } %}
 {% else %}
+<ul class="article-list">
     {% for article in articles %}
-        <a class="article-list-item" href="#">
+    <li class="article-list-item">
+        <a class="article-list-item__link" href="#">
             <div class="article-list-item__media-mask">
                 {% if entity.extraData.image|default(false) %}
                 {{ article.extraData.image|sfs_media_render_image('sm', {'class':'sfs-card__media', 'height':'360'}) }}
@@ -46,7 +48,9 @@
                 <p class="article-list-item__read-more">{{ 'article_list.list.read_more'|trans }}<i class="mdi mdi-chevron-right mdi-36px align-middle"></i></p>
             </div>
         </a>
+    </li>
     {% endfor %}
+</ul>
 
     {% include '@SfsComponents/paginator/pager.html.twig' with {
         'collection': articles,
