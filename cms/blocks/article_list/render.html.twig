@@ -1,19 +1,29 @@
 {% trans_default_domain 'sfs_cms_blocks' %}
 {% if not app.request.query.has('cms-edit') %}
-    {{ form_start(filterForm, {'attr':{'class':'search-blog-form mb-4'}}) }}
+    {{ form_start(filterForm, {'attr':{'class':'search-blog-form mb-5'}}) }}
     {{ form_widget(filterForm.text) }}
     {{ form_rest(filterForm) }}
     <button class="btn btn-dark" type="submit">{{ 'article_list.form.button'|trans }}</button>
     {{ form_end(filterForm) }}
-
-    {% for article in articles %}
-    <a class="article-list-item" href="{{ url(article.routes.first.id) }}">
-        <p class="article-list-item__date">{{ article.publishedAt|time_ago|lower }}</p>
-        <h2 class="article-list-item__title">{{ article.extraData.title[app.request.locale]|default(article.name) }}</h2>
-        <p class="article-list-item__description">{{ article.extraData.description[app.request.locale]|default }}</p>
-        <p class="article-list-item__read-more">{{ 'article_list.list.read_more'|trans }}<i class="mdi mdi-chevron-right mdi-36px align-middle"></i></p>
-    </a>
-    {% endfor %}
+    <ul class="article-list">
+        {% for article in articles %}
+        <li class="article-list-item">
+            <a class="article-list-item__link" href="{{ url(article.routes.first.id) }}">
+                <div class="article-list-item__media-mask">
+                    {% if article.extraData.image is defined %}
+                        {{ article.extraData.image|sfs_media_render_image('sm', {'class':'article-list-item__media', 'height':'360'}) }}
+                    {% endif %}
+                </div>
+                <div class="article-list-item__wrap">
+                    <p class="article-list-item__date">{{ article.publishedAt|time_ago|lower }}</p>
+                    <h2 class="article-list-item__title">{{ article.extraData.title[app.request.locale]|default(article.name) }}</h2>
+                    <p class="article-list-item__description">{{ article.extraData.description[app.request.locale]|default }}</p>
+                    <p class="article-list-item__read-more">{{ 'article_list.list.read_more'|trans }}<i class="mdi mdi-chevron-right mdi-36px align-middle"></i></p>
+                </div>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
 
     {% include '@SfsComponents/paginator/pager.html.twig' with {
         'collection': articles,
@@ -22,14 +32,25 @@
         'query_params': query,
     } %}
 {% else %}
+<ul class="article-list">
     {% for article in articles %}
-        <a class="article-list-item" href="#">
-            <p class="article-list-item__date">{{ article.publishedAt|time_ago|lower }}</p>
-            <h2 class="article-list-item__title">{{ article.extraData.title[app.request.locale]|default(article.name) }}</h2>
-            <p class="article-list-item__description">{{ article.extraData.description[app.request.locale]|default }}</p>
-            <p class="article-list-item__read-more">{{ 'article_list.list.read_more'|trans }}<i class="mdi mdi-chevron-right mdi-36px align-middle"></i></p>
+    <li class="article-list-item">
+        <a class="article-list-item__link" href="#">
+            <div class="article-list-item__media-mask">
+                {% if entity.extraData.image|default(false) %}
+                {{ article.extraData.image|sfs_media_render_image('sm', {'class':'sfs-card__media', 'height':'360'}) }}
+                {% endif %}
+            </div>
+            <div class="article-list-item__wrap">
+                <p class="article-list-item__date">{{ article.publishedAt|time_ago|lower }}</p>
+                <h2 class="article-list-item__title">{{ article.extraData.title[app.request.locale]|default(article.name) }}</h2>
+                <p class="article-list-item__description">{{ article.extraData.description[app.request.locale]|default }}</p>
+                <p class="article-list-item__read-more">{{ 'article_list.list.read_more'|trans }}<i class="mdi mdi-chevron-right mdi-36px align-middle"></i></p>
+            </div>
         </a>
+    </li>
     {% endfor %}
+</ul>
 
     {% include '@SfsComponents/paginator/pager.html.twig' with {
         'collection': articles,
