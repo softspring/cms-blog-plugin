@@ -11,7 +11,7 @@
             <a class="article-list-item__link" href="{{ url(article.routes.first.id) }}">
                 <div class="article-list-item__media-mask">
                     {% if article.extraData.image is defined %}
-                        {{ article.extraData.image|sfs_media_render_image('list', {'class':'article-list-item__media', 'height':'360'}) }}
+                        {{ article.extraData.image|sfs_media_render_image('blog_list', {'class':'article-list-item__media', 'height':'360'}) }}
                     {% endif %}
                 </div>
                 <div class="article-list-item__wrap">
