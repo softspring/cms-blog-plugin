@@ -363,6 +363,8 @@ admin_article:
             title: "Rutas vinculadas"
         linked_medias:
             title: "Medios vinculados"
+        linked_sections:
+            title: "Secciones vinculadas"
         history:
             title: "Histórico"
             action:

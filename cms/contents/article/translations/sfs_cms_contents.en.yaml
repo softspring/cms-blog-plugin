@@ -364,6 +364,8 @@ admin_article:
             title: "Linked routes"
         linked_medias:
             title: "Linked medias"
+        linked_sections:
+            title: "Linked sections"
         history:
             title: "History"
             action:
