@@ -8,14 +8,14 @@ use Softspring\CmsBlogPlugin\Model\ArticleAuthorTrait;
 use Softspring\CmsBlogPlugin\Model\ArticleContentInterface;
 use Softspring\CmsBlogPlugin\Model\ArticleContentTrait;
 use Softspring\CmsBundle\Entity\Content;
-use Softspring\CmsBundle\Model\ContentVersionInterface;
+use Softspring\CmsBundle\Model\VersionInterface;
 
 class ArticleContent extends Content implements ArticleContentInterface, ArticleAuthorInterface
 {
     use ArticleContentTrait;
     use ArticleAuthorTrait;
 
-    public function setPublishedVersion(?ContentVersionInterface $publishedVersion): void
+    public function setPublishedVersion(?VersionInterface $publishedVersion): void
     {
         $this->publishedVersion = $publishedVersion;
 
