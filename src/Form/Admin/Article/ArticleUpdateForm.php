@@ -4,7 +4,6 @@ namespace Softspring\CmsBlogPlugin\Form\Admin\Article;
 
 use ReflectionClass;
 use Softspring\CmsBlogPlugin\Model\ArticleAuthorInterface;
-use Softspring\CmsBundle\Config\CmsConfig;
 use Softspring\CmsBundle\Form\Admin\Content\ContentUpdateForm;
 use Softspring\CmsBundle\Form\Type\UserType;
 use Softspring\CmsBundle\Manager\ContentManagerInterface;
@@ -14,9 +13,9 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class ArticleUpdateForm extends ContentUpdateForm
 {
-    public function __construct(protected ContentManagerInterface $contentManager, TranslatableContext $translatableContext, protected CmsConfig $cmsConfig)
+    public function __construct(protected ContentManagerInterface $contentManager, TranslatableContext $translatableContext)
     {
-        parent::__construct($translatableContext, $cmsConfig);
+        parent::__construct($translatableContext);
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
