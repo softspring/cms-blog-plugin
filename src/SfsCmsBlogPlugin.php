@@ -14,6 +14,11 @@ class SfsCmsBlogPlugin extends SfsCmsPlugin
         return \dirname(__DIR__);
     }
 
+    public static function getAlias(): string
+    {
+        return 'sfs_cms_blog';
+    }
+
     protected function getTargetEntities(): array
     {
         return [
