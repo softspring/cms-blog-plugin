@@ -19,6 +19,12 @@ class ArticleContent extends Content implements ArticleContentInterface, Article
 
     public function setPublishedVersion(?VersionInterface $publishedVersion): void
     {
+        if (null === $publishedVersion) {
+            $this->publishedVersion = null;
+
+            return;
+        }
+
         if (!$publishedVersion instanceof ContentVersionInterface) {
             throw new InvalidArgumentException('Published version must be an instance of ContentVersionInterface.');
         }
