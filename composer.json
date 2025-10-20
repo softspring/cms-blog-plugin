@@ -7,9 +7,9 @@
     "prefer-stable": true,
     "require": {
         "php": ">=8.1",
-        "softspring/cms-bundle": "^5.5@dev",
+        "softspring/cms-bundle": "^6.0@dev",
         "scienta/doctrine-json-functions": "^5.2",
-        "softspring/time-ago-bundle": "^5.5@dev",
+        "softspring/time-ago-bundle": "^6.0@dev",
         "symfony/translation": "^6.1|^7.0"
     },
     "require-dev": {
