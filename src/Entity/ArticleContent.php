@@ -19,7 +19,7 @@ class ArticleContent extends Content implements ArticleContentInterface, Article
 
     public function setPublishedVersion(?VersionInterface $publishedVersion): void
     {
-        if (null === $publishedVersion) {
+        if (!$publishedVersion instanceof VersionInterface) {
             $this->publishedVersion = null;
 
             return;
@@ -31,7 +31,7 @@ class ArticleContent extends Content implements ArticleContentInterface, Article
 
         $this->publishedVersion = $publishedVersion;
 
-        if (!$this->getPublishedAt()) {
+        if (!$this->getPublishedAt() instanceof DateTime) {
             $this->setPublishedAt(new DateTime('now'));
         }
     }

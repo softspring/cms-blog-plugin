@@ -15,6 +15,6 @@ trait ArticleContentTrait
 
     public function setPublishedAt(?DateTime $publishedAt = null): void
     {
-        $this->publishedAt = $publishedAt ? (int) $publishedAt->format('U') : null;
+        $this->publishedAt = $publishedAt instanceof DateTime ? (int) $publishedAt->format('U') : null;
     }
 }

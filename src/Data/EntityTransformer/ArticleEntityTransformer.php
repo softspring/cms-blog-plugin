@@ -13,11 +13,7 @@ class ArticleEntityTransformer extends ContentEntityTransformer
 {
     public function supports(string $type, $data = null): bool
     {
-        if ('article' === $type) {
-            return true;
-        }
-
-        return false;
+        return 'article' === $type;
     }
 
     public function export(object $element, &$files = [], ?object $contentVersion = null, ?string $contentType = null): array
