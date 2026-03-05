@@ -5,7 +5,7 @@
     "type": "sfs-cms-plugin",
     "require": {
         "php": ">=8.4",
-        "scienta/doctrine-json-functions": "^5.2",
+        "scienta/doctrine-json-functions": "^6.0",
         "softspring/cms-bundle": "^6.0@dev",
         "softspring/time-ago-bundle": "^6.0@dev",
         "symfony/translation": "^6.4 || ^7.4 || ^8.0"
