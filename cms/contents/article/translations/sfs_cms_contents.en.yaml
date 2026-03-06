@@ -38,14 +38,14 @@ admin_article:
             duplicate.button: "Create page"
             cancel.button: "Cancel"
         success_flash: "Page has been duplicated"
-    
+
     version_publish:
         success_flash: "Version has been published"
         failed_flash: "An error has been produced during the version publication"
         confirm_message_title: "Publish version"
         confirm_message_raw: "<p>Are you sure to publish this version?</p>"
 
-    unpublish:
+    version_unpublish:
         has_been_unpublished_flash: "The article has been unpublished"
         confirm_message_title: "Unpublish article"
         confirm_message_raw: "<p>Are you sure to unpublish this article?</p><p>It will show a 404 error to the users</p>"
@@ -78,7 +78,7 @@ admin_article:
         title: "%name%"
         breadcrumb: "General"
         actions:
-            unpublish:
+            version_unpublish:
                 confirm: "are you sure to unpublish this article?"
                 link: "Unpublish"
         name: "Name"
@@ -152,6 +152,9 @@ admin_article:
             info.link: "Info"
             add_note.link: "Add note"
             delete.link: "Delete version"
+            unpublish:
+                link: "Unpublish"
+                confirm: "Are you sure you want to unpublish this page? It will show a 404 error to the users."
 
     preview:
         meta.title: "Preview article"
@@ -355,7 +358,9 @@ admin_article:
             title: "Compiled content"
             error: "This content has some compilation errors, try to edit it to solve them or try to recompile"
             pre_compile_content_disabled: "Content pre-compilation is disabled for this version"
+            pre_compile_content_missing: "This version has not compiled content."
             pre_compile_modules_disabled: "Module pre-compilation is disabled for this version"
+            pre_compile_modules_missing: "This version has not compiled modules."
         data:
             title: "Data"
         seo:

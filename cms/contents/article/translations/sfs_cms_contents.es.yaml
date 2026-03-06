@@ -37,14 +37,14 @@ admin_article:
             duplicate.button: "Crear artículo"
             cancel.button: "Cancelar"
         success_flash: "El artículo se ha duplicado"
-    
+
     version_publish:
         success_flash: "La versión se ha publicado"
         failed_flash: "Se ha producido un error al publicar la versión<br/><small>%exception%</small>"
         confirm_message_title: "Publicar versión"
         confirm_message_raw: "<p>¿Estás seguro de publicar esta versión?</p>"
 
-    unpublish:
+    version_unpublish:
         has_been_unpublished_flash: "El artículo se ha despublicado"
         confirm_message_title: "Despublicar artículo"
         confirm_message_raw: "<p>¿Estás seguro de despublicar este artículo?</p><p>Mostrará un error 404 a los usuarios</p>"
@@ -77,7 +77,7 @@ admin_article:
         title: "%name%"
         breadcrumb: "General"
         actions:
-            unpublish:
+            version_unpublish:
                 confirm: "¿estás seguro de despublicar esto artículo?"
                 link: "Despublicar"
         name: "Nombre"
@@ -151,6 +151,9 @@ admin_article:
             info.link: "Info"
             add_note.link: "Añadir nota"
             delete.link: "Eliminar versión"
+            unpublish:
+                link: "Despublicar"
+                confirm: "¿Estás seguro de despublicar esta versión? Mostrará un error 404 a los usuarios."
 
     preview:
         meta.title: "Previsualizar artículo"
@@ -354,7 +357,9 @@ admin_article:
             title: "Contenido compilado"
             error: "Este contenido tiene errores en la compilación, trata de editarlo para resolverlos o de republicar"
             pre_compile_content_disabled: "La pre-compilación de contenido está desactivada para esta versión"
+            pre_compile_content_missing: "Esta versión no tiene contenido pre-compilado."
             pre_compile_modules_disabled: "La pre-compilación de módulos está desactivada para esta versión"
+            pre_compile_modules_missing: "Esta versión no tiene módulos pre-compilados."
         data:
             title: "Datos"
         seo:

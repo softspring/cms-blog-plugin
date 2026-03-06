@@ -4,3 +4,6 @@ article_list:
         button: "Buscar"
     list:
         read_more: "Seguir leyendo"
+
+admin_article_list:
+    name: "Article list"

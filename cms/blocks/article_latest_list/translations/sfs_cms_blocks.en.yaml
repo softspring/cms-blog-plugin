@@ -1,2 +1,5 @@
 article_latest_list:
     title: "Latest articles"
+
+admin_article_latest_list:
+    name: "Latest articles"
