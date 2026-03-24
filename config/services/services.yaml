@@ -16,9 +16,6 @@ services:
         resource: '../../src/Form/*'
         tags: ['form.type']
 
-    Softspring\CmsBlogPlugin\Data\:
-        resource: '../../src/Data/*'
-
     Softspring\CmsBlogPlugin\Manager\:
         resource: '../../src/Manager/*'
 

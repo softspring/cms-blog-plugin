@@ -4,9 +4,9 @@ namespace Softspring\CmsBlogPlugin\Data\EntityTransformer;
 
 use DateTime;
 use Softspring\CmsBlogPlugin\Model\ArticleContentInterface;
-use Softspring\CmsBundle\Data\EntityTransformer\ContentEntityTransformer;
-use Softspring\CmsBundle\Data\Exception\InvalidElementException;
-use Softspring\CmsBundle\Data\ReferencesRepository;
+use Softspring\CmsDataPlugin\Data\EntityTransformer\ContentEntityTransformer;
+use Softspring\CmsDataPlugin\Data\Exception\InvalidElementException;
+use Softspring\CmsDataPlugin\Data\ReferencesRepository;
 use Softspring\CmsBundle\Model\ContentInterface;
 
 class ArticleEntityTransformer extends ContentEntityTransformer
