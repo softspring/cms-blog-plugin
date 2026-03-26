@@ -7,6 +7,7 @@ use Scienta\DoctrineJsonFunctions\Query\AST\Functions\Mysql\JsonExtract;
 use Scienta\DoctrineJsonFunctions\Query\AST\Functions\Mysql\JsonSearch;
 use Softspring\CmsBlogPlugin\Entity\ArticleContent;
 use Softspring\CmsBlogPlugin\Model\ArticleContentInterface;
+use Softspring\CmsDataPlugin\SfsCmsDataPlugin;
 use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -31,6 +32,10 @@ class SfsCmsBlogExtension extends Extension implements PrependExtensionInterface
 
         // load services
         $loader->load('services.yaml');
+
+        if (class_exists(SfsCmsDataPlugin::class)) {
+            $loader->load('data_plugin_services.yaml');
+        }
     }
 
     protected function processDataClasses(ContainerBuilder $container): void
