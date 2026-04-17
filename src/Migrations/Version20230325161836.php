@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Softspring\CmsBlogPlugin\Migrations;
 
 use Doctrine\DBAL\Schema\Schema;
+use Doctrine\DBAL\Platforms\PostgreSQLPlatform;
 use Doctrine\Migrations\AbstractMigration;
 
 final class Version20230325161836 extends AbstractMigration
@@ -16,6 +17,12 @@ final class Version20230325161836 extends AbstractMigration
 
     public function up(Schema $schema): void
     {
+        if ($this->connection->getDatabasePlatform() instanceof PostgreSQLPlatform) {
+            $this->addSql('ALTER TABLE cms_content_blog_article ADD published_at INTEGER DEFAULT NULL');
+
+            return;
+        }
+
         $this->addSql('ALTER TABLE cms_content_blog_article ADD published_at INT UNSIGNED DEFAULT NULL');
     }
 
