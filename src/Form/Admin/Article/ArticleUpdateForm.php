@@ -4,7 +4,6 @@ namespace Softspring\CmsBlogPlugin\Form\Admin\Article;
 
 use Softspring\CmsBlogPlugin\Model\ArticleAuthorInterface;
 use Softspring\CmsBlogPlugin\Form\Type\ArticleTagsType;
-use Softspring\CmsBundle\Config\CmsConfig;
 use Softspring\CmsBundle\Form\Admin\Content\ContentUpdateForm;
 use Softspring\CmsBundle\Form\Type\UserType;
 use Softspring\CmsBundle\Translator\TranslatableContext;
@@ -13,9 +12,9 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class ArticleUpdateForm extends ContentUpdateForm
 {
-    public function __construct(TranslatableContext $translatableContext, CmsConfig $cmsConfig)
+    public function __construct(TranslatableContext $translatableContext)
     {
-        parent::__construct($translatableContext, $cmsConfig);
+        parent::__construct($translatableContext);
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
