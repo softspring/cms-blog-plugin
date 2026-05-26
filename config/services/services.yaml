@@ -19,13 +19,11 @@ services:
     Softspring\CmsBlogPlugin\Form\Admin\Article\ArticleCreateForm:
         arguments:
             $translatableContext: '@Softspring\CmsBundle\Translator\TranslatableContext'
-            $cmsConfig: '@Softspring\CmsBundle\Config\CmsConfig'
         tags: ['form.type']
 
     Softspring\CmsBlogPlugin\Form\Admin\Article\ArticleUpdateForm:
         arguments:
             $translatableContext: '@Softspring\CmsBundle\Translator\TranslatableContext'
-            $cmsConfig: '@Softspring\CmsBundle\Config\CmsConfig'
         tags: ['form.type']
 
     Softspring\CmsBlogPlugin\Manager\:
