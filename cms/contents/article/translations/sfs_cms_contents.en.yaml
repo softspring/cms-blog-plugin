@@ -89,6 +89,7 @@ admin_article:
             status: "Status"
             publishDate: "Publish date"
             author: "Author"
+            tags: "Tags"
         indexing:
             title: "Indexing"
             noIndex:
@@ -318,6 +319,9 @@ admin_article:
         description.label: "Excerpt"
         publishedAt.label: "Visible published date time"
         author.label: "Author"
+        tags.label: "Tags"
+        tags.help: "Press Enter or comma to add each tag. Existing similar tags are reused."
+        tags.placeholder: "Write a tag"
 
     version_form:
         note.label: "Note"

@@ -21,5 +21,6 @@ class ArticleEntityDuplicator implements ContentEntityDuplicatorInterface
     {
         $newContent->setAuthor($oldContent->getAuthor());
         $newContent->setPublishedAt($oldContent->getPublishedAt());
+        $newContent->setTags($oldContent->getTags());
     }
 }

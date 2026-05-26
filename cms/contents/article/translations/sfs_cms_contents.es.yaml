@@ -88,6 +88,7 @@ admin_article:
             status: "Estado"
             publishDate: "Fecha de publicación"
             author: "Autor"
+            tags: "Etiquetas"
         indexing:
             title: "Indexado"
             noIndex:
@@ -317,6 +318,9 @@ admin_article:
         description.label: "Excerpt"
         publishedAt.label: "Fecha de publicación visible"
         author.label: "Autor"
+        tags.label: "Etiquetas"
+        tags.help: "Pulsa Enter o coma para añadir cada etiqueta. Si ya existe una parecida, se reutiliza la misma."
+        tags.placeholder: "Escribe una etiqueta"
 
     version_form:
         note.label: "Nota"

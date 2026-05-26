@@ -1,0 +1,130 @@
+{% trans_default_domain 'sfs_cms_contents' %}
+
+<div class="mb-3" data-article-tags-widget data-field-id="{{ form.tags.vars.id }}">
+    {{ form_label(form.tags) }}
+    {{ form_errors(form.tags) }}
+    {{ form_widget(form.tags) }}
+
+    <div class="border rounded p-2 bg-white" data-tags-container>
+        <div class="d-flex flex-wrap gap-2 mb-2" data-tags-list></div>
+        <input
+            type="text"
+            class="form-control border-0 shadow-none px-0"
+            data-tags-input
+            list="{{ form.tags.vars.id }}_suggestions"
+            placeholder="{{ 'admin_article.form.tags.placeholder'|trans }}"
+            autocomplete="off"
+        />
+    </div>
+
+    <datalist id="{{ form.tags.vars.id }}_suggestions">
+        {% for tag in form.tags.vars.tag_suggestions %}
+            <option value="{{ tag }}"></option>
+        {% endfor %}
+    </datalist>
+
+    <div class="form-text">{{ 'admin_article.form.tags.help'|trans }}</div>
+</div>
+
+<script>
+(() => {
+    const widget = document.querySelector('[data-article-tags-widget][data-field-id="{{ form.tags.vars.id }}"]');
+
+    if (!widget || widget.dataset.initialized === 'true') {
+        return;
+    }
+
+    widget.dataset.initialized = 'true';
+
+    const hiddenInput = widget.querySelector('input[type="hidden"]');
+    const textInput = widget.querySelector('[data-tags-input]');
+    const tagsList = widget.querySelector('[data-tags-list]');
+    const suggestions = {{ form.tags.vars.tag_suggestions|json_encode|raw }};
+
+    const canonicalSuggestions = suggestions.reduce((carry, tag) => {
+        carry[tag.toLocaleLowerCase()] = tag;
+        return carry;
+    }, {});
+
+    const parseTags = () => {
+        try {
+            const parsedTags = JSON.parse(hiddenInput.value || '[]');
+            return Array.isArray(parsedTags) ? parsedTags : [];
+        } catch (e) {
+            return [];
+        }
+    };
+
+    const normalizeTag = (tag) => {
+        const compactTag = tag.trim().replace(/\s+/g, ' ');
+        if (!compactTag) {
+            return '';
+        }
+
+        return canonicalSuggestions[compactTag.toLocaleLowerCase()] || compactTag;
+    };
+
+    const storeTags = (tags) => {
+        hiddenInput.value = JSON.stringify(tags);
+    };
+
+    const renderTags = () => {
+        const tags = parseTags();
+
+        tagsList.innerHTML = '';
+
+        tags.forEach((tag, index) => {
+            const badge = document.createElement('span');
+            badge.className = 'badge text-bg-secondary d-inline-flex align-items-center gap-2';
+            badge.textContent = tag;
+
+            const removeButton = document.createElement('button');
+            removeButton.type = 'button';
+            removeButton.className = 'btn-close btn-close-white btn-sm';
+            removeButton.setAttribute('aria-label', 'Remove');
+            removeButton.addEventListener('click', () => {
+                const nextTags = parseTags();
+                nextTags.splice(index, 1);
+                storeTags(nextTags);
+                renderTags();
+            });
+
+            badge.appendChild(removeButton);
+            tagsList.appendChild(badge);
+        });
+    };
+
+    const addTag = (tag) => {
+        const normalizedTag = normalizeTag(tag);
+
+        if (!normalizedTag) {
+            return;
+        }
+
+        const tags = parseTags();
+        const normalizedTags = new Set(tags.map(tag => tag.toLocaleLowerCase()));
+
+        if (normalizedTags.has(normalizedTag.toLocaleLowerCase())) {
+            textInput.value = '';
+            return;
+        }
+
+        tags.push(normalizedTag);
+        storeTags(tags);
+        renderTags();
+        textInput.value = '';
+    };
+
+    textInput.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ',') {
+            event.preventDefault();
+            addTag(textInput.value);
+        }
+    });
+
+    textInput.addEventListener('change', () => addTag(textInput.value));
+    textInput.addEventListener('blur', () => addTag(textInput.value));
+
+    renderTags();
+})();
+</script>

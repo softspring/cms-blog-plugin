@@ -2,26 +2,23 @@
 
 namespace Softspring\CmsBlogPlugin\Form\Admin\Article;
 
-use ReflectionClass;
+use Softspring\CmsBlogPlugin\Form\Type\ArticleTagsType;
 use Softspring\CmsBlogPlugin\Model\ArticleAuthorInterface;
 use Softspring\CmsBundle\Form\Admin\Content\ContentCreateForm;
 use Softspring\CmsBundle\Form\Type\UserType;
-use Softspring\CmsBundle\Manager\ContentManagerInterface;
 use Softspring\CmsBundle\Translator\TranslatableContext;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class ArticleCreateForm extends ContentCreateForm
 {
-    public function __construct(protected ContentManagerInterface $contentManager, TranslatableContext $translatableContext)
+    public function __construct(TranslatableContext $translatableContext)
     {
         parent::__construct($translatableContext);
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $entityClass = new ReflectionClass($this->contentManager->getTypeClass($options['content_config']['_id']));
-
         parent::buildForm($builder, $options);
 
         $builder->add('publishedAt', DateTimeType::class, [
@@ -29,7 +26,11 @@ class ArticleCreateForm extends ContentCreateForm
             'widget' => 'single_text',
         ]);
 
-        if ($entityClass->implementsInterface(ArticleAuthorInterface::class)) {
+        $builder->add('tags', ArticleTagsType::class);
+
+        $dataClass = $options['data_class'] ?? null;
+
+        if (is_string($dataClass) && is_a($dataClass, ArticleAuthorInterface::class, true)) {
             $builder->add('author', UserType::class, [
                 'required' => true,
             ]);
