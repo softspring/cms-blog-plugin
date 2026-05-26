@@ -2,8 +2,8 @@
 
 namespace Softspring\CmsBlogPlugin\Form\Admin\Article;
 
-use Softspring\CmsBlogPlugin\Model\ArticleAuthorInterface;
 use Softspring\CmsBlogPlugin\Form\Type\ArticleTagsType;
+use Softspring\CmsBlogPlugin\Model\ArticleAuthorInterface;
 use Softspring\CmsBundle\Form\Admin\Content\ContentCreateForm;
 use Softspring\CmsBundle\Form\Type\UserType;
 use Softspring\CmsBundle\Translator\TranslatableContext;
