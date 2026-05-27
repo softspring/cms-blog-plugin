@@ -1,0 +1,24 @@
+block_articles_related:
+    label: "Related articles"
+    prototype_button: "Related articles"
+    prototype_button_icon: '<i class="bi bi-tags-fill"></i>'
+    form:
+        _group:
+            attributes: "Attributes"
+            content: "Content"
+        id.label: "Id"
+        class.label: "Classes"
+        title.label: "Title"
+        tag.label: "Tag"
+        tag.placeholder: "Select a tag"
+        limit.label: "Number of articles"
+        order.label: "Order"
+        order.values:
+            published_at_desc: "Newest first"
+            published_at_asc: "Oldest first"
+            name_asc: "Name A-Z"
+            name_desc: "Name Z-A"
+    render:
+        title: "Related articles"
+    edit:
+        no_results: "There are no published articles for this tag."

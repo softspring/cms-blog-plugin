@@ -16,6 +16,10 @@ services:
         resource: '../../src/Form/*'
         tags: ['form.type']
 
+    Softspring\CmsBlogPlugin\Twig\Extension\:
+        resource: '../../src/Twig/Extension/*'
+        tags: ['twig.extension']
+
     Softspring\CmsBlogPlugin\Form\Admin\Article\ArticleCreateForm:
         arguments:
             $translatableContext: '@Softspring\CmsBundle\Translator\TranslatableContext'
