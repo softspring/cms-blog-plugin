@@ -1,0 +1,19 @@
+{% trans_default_domain 'sfs_cms_contents' %}
+
+{% set has_article_metadata = form.author is defined
+    or form.publishedAt is defined
+    or form.tags is defined
+    or (form.extraData is defined and form.extraData.reading_minutes is defined)
+%}
+
+{% if has_article_metadata %}
+    <section class="mb-5" aria-labelledby="article-metadata-fields-title">
+        <h2 class="h5 border-bottom pb-2 mb-4" id="article-metadata-fields-title">{{ 'admin_article.form.sections.metadata.title'|trans }}</h2>
+
+        {% if form.author is defined %}{{ form_row(form.author) }}{% endif %}
+        {% if form.publishedAt is defined %}{{ form_row(form.publishedAt) }}{% endif %}
+        {% if form.tags is defined %}{% include '@content/article/admin/_tags_field.html.twig' with {'form': form} only %}{% endif %}
+        {% if form.extraData is defined and form.extraData.reading_minutes is defined %}{{ form_row(form.extraData.reading_minutes) }}{% endif %}
+        {% if form.extraData is defined %}{% do form.extraData.setRendered() %}{% endif %}
+    </section>
+{% endif %}

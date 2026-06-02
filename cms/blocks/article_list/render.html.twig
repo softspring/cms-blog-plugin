@@ -1,10 +1,14 @@
 {% trans_default_domain 'sfs_cms_blocks' %}
+{% set articles = articles|default([]) %}
+{% set query = query|default({}) %}
 {% if not app.request.query.has('cms-edit') %}
-    {{ form_start(filterForm, {'attr':{'class':'search-blog-form mb-5'}}) }}
-    {{ form_widget(filterForm.text) }}
-    {{ form_rest(filterForm) }}
-    <button class="btn btn-dark" type="submit">{{ 'article_list.form.button'|trans }}</button>
-    {{ form_end(filterForm) }}
+    {% if filterForm is defined %}
+        {{ form_start(filterForm, {'attr':{'class':'search-blog-form mb-5'}}) }}
+        {{ form_widget(filterForm.text) }}
+        {{ form_rest(filterForm) }}
+        <button class="btn btn-dark" type="submit">{{ 'article_list.form.button'|trans }}</button>
+        {{ form_end(filterForm) }}
+    {% endif %}
     <ul class="article-list">
         {% for article in articles %}
         <li class="article-list-item">
@@ -25,19 +29,21 @@
         {% endfor %}
     </ul>
 
-    {% include '@SfsComponents/paginator/pager.html.twig' with {
-        'collection': articles,
-        'pagination_route': app.request.query.get('current_route', ''),
-        'pagination_route_attributes': {},
-        'query_params': query,
-    } %}
+    {% if articles.total is defined %}
+        {% include '@SfsComponents/paginator/pager.html.twig' with {
+            'collection': articles,
+            'pagination_route': app.request.query.get('current_route', ''),
+            'pagination_route_attributes': {},
+            'query_params': query,
+        } %}
+    {% endif %}
 {% else %}
 <ul class="article-list">
     {% for article in articles %}
     <li class="article-list-item">
         <a class="article-list-item__link" href="#">
             <div class="article-list-item__media-mask">
-                {% if entity.extraData.image|default(false) %}
+                {% if article.extraData.image|default(false) %}
                 {{ article.extraData.image|sfs_media_render_image('sm', {'class':'sfs-card__media', 'height':'360'}) }}
                 {% endif %}
             </div>
@@ -52,11 +58,12 @@
     {% endfor %}
 </ul>
 
-    {% include '@SfsComponents/paginator/pager.html.twig' with {
-        'collection': articles,
-        'pagination_route': '',
-        'pagination_route_attributes': {},
-        'query_params': {},
-    } %}
+    {% if articles.total is defined %}
+        {% include '@SfsComponents/paginator/pager.html.twig' with {
+            'collection': articles,
+            'pagination_route': '',
+            'pagination_route_attributes': {},
+            'query_params': {},
+        } %}
+    {% endif %}
 {% endif %}
-

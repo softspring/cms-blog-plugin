@@ -28,7 +28,7 @@ class ArticleUpdateForm extends ContentUpdateForm
 
         $builder->add('tags', ArticleTagsType::class);
 
-        $dataClass = $options['data_class'] ?? null;
+        $dataClass = $options['content_config']['entity_class'] ?? $options['data_class'] ?? null;
 
         if (is_string($dataClass) && is_a($dataClass, ArticleAuthorInterface::class, true)) {
             $builder->add('author', UserType::class, [

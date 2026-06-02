@@ -13,6 +13,8 @@ content:
         update:
             type: 'Softspring\CmsBlogPlugin\Form\Admin\Article\ArticleUpdateForm'
             view: '@content/article/admin/update.html.twig'
+        duplicate:
+            type: 'Softspring\CmsBlogPlugin\Form\Admin\Article\ArticleDuplicateForm'
 
     default_layout: 'article'
 
@@ -27,5 +29,4 @@ content:
             type: 'translation'
             type_options:
                 type: 'textarea'
-
 

@@ -1,0 +1,16 @@
+{% trans_default_domain 'sfs_cms_contents' %}
+
+{% if form.extraData is defined %}
+    <section class="mb-5" aria-labelledby="article-configuration-fields-title">
+        <h2 class="h5 border-bottom pb-2 mb-4" id="article-configuration-fields-title">{{ 'admin_content.form.sections.content_configuration.title'|trans }}</h2>
+
+        {% if form.extraData.image is defined %}
+            {{ form_row(form.extraData.image) }}
+        {% endif %}
+        {% for field_name, field in form.extraData %}
+            {% if field_name not in ['image', 'reading_minutes'] %}
+                {{ form_row(field) }}
+            {% endif %}
+        {% endfor %}
+    </section>
+{% endif %}

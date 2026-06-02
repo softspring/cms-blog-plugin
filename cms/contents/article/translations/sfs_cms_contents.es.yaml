@@ -75,7 +75,7 @@ admin_article:
     read:
         meta.title: "General"
         title: "%name%"
-        breadcrumb: "General"
+        breadcrumb: "Artículo"
         actions:
             version_unpublish:
                 confirm: "¿estás seguro de despublicar esto artículo?"
@@ -109,6 +109,7 @@ admin_article:
             cache: "(cache %ttl% segundos)"
             not_published_warning: "Este contenido no está publicado, por lo tanto las siguientes rutas devolverán un error 404"
             missing_locale: "No hay segmento de URL configurado para el idioma %missingLocale%"
+            edit.link: "Editar"
         versions:
             title: "Últimas versiones"
             published: "publicada"
@@ -145,7 +146,9 @@ admin_article:
             export.link: "Exportar"
             publish.link: "Publicar"
             import_version.link: "Importar versión"
-            cleanup_versions.link: "Limpiar versiones"
+            cleanup_versions:
+                link: "Limpiar versiones"
+                confirm: "¿Estás seguro de limpiar las versiones? Esta acción eliminará todas las versiones excepto la publicada, la última y las marcadas para mantener."
             translations.link: "Traducciones"
             keep.link: "Mantener versión, pinchar para desmarcar"
             nokeep.link: "No mantener esta versión, pinchar para mantener"
@@ -301,7 +304,7 @@ admin_article:
             sitemapChangefreq:
                 label: "Frecuencia de cambio en el sitemap"
                 values:
-                    empty: ""
+                    empty: "Valor por defecto"
                     always: "siempre"
                     hourly: "cada hora"
                     daily: "diariamente"
@@ -316,11 +319,16 @@ admin_article:
             metaKeywords.label: "Palabras clave (etiqueta meta)"
         title.label: "Título del artículo"
         description.label: "Excerpt"
+        reading_minutes.label: "Tiempo de lectura (minutos)"
+        image.label: "Imagen principal"
         publishedAt.label: "Fecha de publicación visible"
         author.label: "Autor"
         tags.label: "Etiquetas"
         tags.help: "Pulsa Enter o coma para añadir cada etiqueta. Si ya existe una parecida, se reutiliza la misma."
         tags.placeholder: "Escribe una etiqueta"
+        sections:
+            metadata:
+                title: "Metadatos"
 
     version_form:
         note.label: "Nota"
@@ -403,3 +411,17 @@ admin_article:
             delete.button: "Eliminar definitivamente"
             cancel.button: "Cancelar"
         success_flash: "La versión se ha eliminado"
+
+admin_content:
+    form:
+        sections:
+            main:
+                title: "Identificador"
+            content_configuration:
+                title: "Configuración del contenido"
+            availability:
+                title: "Sitios e idiomas"
+            routes:
+                title: "Ruta principal"
+            indexing:
+                title: "Controles SEO"

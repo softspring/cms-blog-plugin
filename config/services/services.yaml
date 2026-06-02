@@ -30,6 +30,12 @@ services:
             $translatableContext: '@Softspring\CmsBundle\Translator\TranslatableContext'
         tags: ['form.type']
 
+    Softspring\CmsBlogPlugin\Form\Admin\Article\ArticleDuplicateForm:
+        arguments:
+            $translatableContext: '@Softspring\CmsBundle\Translator\TranslatableContext'
+            $em: '@doctrine.orm.entity_manager'
+        tags: ['form.type']
+
     Softspring\CmsBlogPlugin\Manager\:
         resource: '../../src/Manager/*'
 

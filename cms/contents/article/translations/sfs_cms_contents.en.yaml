@@ -76,7 +76,7 @@ admin_article:
     read:
         meta.title: "General"
         title: "%name%"
-        breadcrumb: "General"
+        breadcrumb: "Article"
         actions:
             version_unpublish:
                 confirm: "are you sure to unpublish this article?"
@@ -110,6 +110,7 @@ admin_article:
             cache: "(cache %ttl% seconds)"
             not_published_warning: "This content is not published, so the following routes will return a 404 error"
             missing_locale: "This content has not a route path for %missingLocale% language"
+            edit.link: "Edit"
         versions:
             title: "Last versions"
             published: "Published"
@@ -146,7 +147,9 @@ admin_article:
             export.link: "Export"
             publish.link: "Publish"
             import_version.link: "Import version"
-            cleanup_versions.link: "Cleanup versions"
+            cleanup_versions:
+                link: "Cleanup versions"
+                confirm: "Are you sure to cleanup versions? This action will delete all versions except the published one, the last one and the ones marked to keep."
             translations.link: "Translations"
             keep.link: "Keep version, click to no keep"
             nokeep.link: "Do not keep version, click to keep"
@@ -302,7 +305,7 @@ admin_article:
             sitemapChangefreq:
                 label: "Change frequency for sitemap"
                 values:
-                    empty: ""
+                    empty: "Default value"
                     always: "always"
                     hourly: "hourly"
                     daily: "daily"
@@ -317,11 +320,16 @@ admin_article:
             metaKeywords.label: "Keywords (meta tag)"
         title.label: "Article title"
         description.label: "Excerpt"
+        reading_minutes.label: "Reading minutes"
+        image.label: "Main image"
         publishedAt.label: "Visible published date time"
         author.label: "Author"
         tags.label: "Tags"
         tags.help: "Press Enter or comma to add each tag. Existing similar tags are reused."
         tags.placeholder: "Write a tag"
+        sections:
+            metadata:
+                title: "Metadata"
 
     version_form:
         note.label: "Note"
@@ -404,3 +412,17 @@ admin_article:
             delete.button: "Delete definitely"
             cancel.button: "Cancel"
         success_flash: "Version has been deleted"
+
+admin_content:
+    form:
+        sections:
+            main:
+                title: "Identifier"
+            content_configuration:
+                title: "Content configuration"
+            availability:
+                title: "Sites and languages"
+            routes:
+                title: "Main route"
+            indexing:
+                title: "SEO controls"
