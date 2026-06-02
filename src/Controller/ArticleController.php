@@ -12,6 +12,8 @@ use Symfony\Component\Translation\LocaleSwitcher;
 
 class ArticleController extends AbstractController
 {
+    protected const INTERNAL_QUERY_PARAMS = ['_locale', '_site', 'ignore_errors', 'isolate_request', 'cms-edit', 'current_route'];
+
     public function __construct(protected ContentManagerInterface $contentManager, protected ?LocaleSwitcher $localeSwitcher = null)
     {
     }
@@ -20,9 +22,7 @@ class ArticleController extends AbstractController
     {
         $locale = $this->setLocale($request);
 
-        $url = $request->server->get('SFS_CMS_REQUEST_URI', $request->headers->get('x-original-uri'));
-        $query = [];
-        parse_str(parse_url($url, PHP_URL_QUERY), $query);
+        $query = $this->getPublicQuery($request);
         foreach ($query as $k => $v) {
             $request->query->set($k, $v);
         }
@@ -49,7 +49,7 @@ class ArticleController extends AbstractController
         }
 
         $viewData = [
-            'query' => $query,
+            'query' => $this->cleanPublicQuery($request->query->all()),
             'articles' => Paginator::queryPaginatedFilterForm($form, $request),
             'filterForm' => $form->createView(),
         ];
@@ -61,9 +61,7 @@ class ArticleController extends AbstractController
     {
         $locale = $this->setLocale($request);
 
-        $url = $request->headers->get('x-original-uri');
-        $query = [];
-        parse_str(parse_url($url, PHP_URL_QUERY), $query);
+        $query = $this->getPublicQuery($request);
         foreach ($query as $k => $v) {
             $request->query->set($k, $v);
         }
@@ -110,5 +108,23 @@ class ArticleController extends AbstractController
         $request->setLocale($locale);
 
         return $locale;
+    }
+
+    protected function getPublicQuery(Request $request): array
+    {
+        $url = $request->headers->get('x-original-uri') ?: $request->server->get('SFS_CMS_REQUEST_URI') ?: $request->getRequestUri();
+        $query = [];
+        parse_str(parse_url($url, PHP_URL_QUERY) ?: '', $query);
+
+        return $query ?: $request->query->all();
+    }
+
+    protected function cleanPublicQuery(array $query): array
+    {
+        foreach (self::INTERNAL_QUERY_PARAMS as $param) {
+            unset($query[$param]);
+        }
+
+        return $query;
     }
 }
