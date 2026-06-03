@@ -1,3 +1,10 @@
+{% set current_article = _content.publishedAt is defined ? _content.id : '' %}
+
 {{ sfs_cms_block_by_type('article_list', {
-    'current_route': _content.routes.first.id
+    'current_route': _content.routes.first.id,
+    'show_filter_form': show_filter_form|default(true) ? 1 : 0,
+    'tag': tag|default(''),
+    'limit': limit|default(''),
+    'article_order': order|default('published_at_desc'),
+    'current_article': current_article
 }, app.request.locale) }}

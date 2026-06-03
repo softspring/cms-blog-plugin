@@ -3,5 +3,4 @@ block:
     static: true
     esi: true
     singleton: true
-    render_url: cms_blog_block_article_latest_list
-    enabled: false
+    render_url: cms_blog_block_article_link_list

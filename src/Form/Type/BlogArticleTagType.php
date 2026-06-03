@@ -25,7 +25,7 @@ class BlogArticleTagType extends AbstractType
 
         $resolver->setDefaults([
             'required' => false,
-            'placeholder' => 'block_articles_related.form.tag.placeholder',
+            'placeholder' => null,
             'choices' => $choices,
             'choice_translation_domain' => false,
         ]);

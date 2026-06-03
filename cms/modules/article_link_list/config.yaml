@@ -1,9 +1,9 @@
 module:
     group: blog
     revision: 2
-    edit_template: '@module/article_list/edit.html.twig'
-    form_template: '@module/article_list/form.html.twig'
-    render_template: '@module/article_list/render.html.twig'
+    edit_template: '@module/article_link_list/edit.html.twig'
+    form_template: '@module/article_link_list/form.html.twig'
+    render_template: '@module/article_link_list/render.html.twig'
     module_options:
         form_fields:
             id:
@@ -12,19 +12,18 @@ module:
             class:
                 type: 'class'
 
-            show_filter_form:
-                type: 'checkbox'
+            title:
+                type: 'translation'
                 type_options:
                     required: false
-                    default_value: true
-                    attr:
-                        data-article-list-preview-param: 'show_filter_form'
+                    children_attr:
+                        data-article-list-preview-param: 'title'
 
             tag:
                 type: 'Softspring\CmsBlogPlugin\Form\Type\BlogArticleTagType'
                 type_options:
                     required: false
-                    placeholder: 'article_list.form.tag.placeholder'
+                    placeholder: 'article_link_list.form.tag.placeholder'
                     attr:
                         data-article-list-preview-param: 'tag'
 
@@ -32,6 +31,8 @@ module:
                 type: 'integer'
                 type_options:
                     required: false
+                    empty_data: 5
+                    default_value: 5
                     attr:
                         min: 1
                         data-article-list-preview-param: 'limit'
@@ -44,7 +45,7 @@ module:
                     attr:
                         data-article-list-preview-param: 'article_order'
                     choices:
-                        'article_list.form.order.values.published_at_desc': 'published_at_desc'
-                        'article_list.form.order.values.published_at_asc': 'published_at_asc'
-                        'article_list.form.order.values.name_asc': 'name_asc'
-                        'article_list.form.order.values.name_desc': 'name_desc'
+                        'article_link_list.form.order.values.published_at_desc': 'published_at_desc'
+                        'article_link_list.form.order.values.published_at_asc': 'published_at_asc'
+                        'article_link_list.form.order.values.name_asc': 'name_asc'
+                        'article_link_list.form.order.values.name_desc': 'name_desc'

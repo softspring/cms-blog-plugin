@@ -1,0 +1,13 @@
+{% import '@SfsCms/macros/modules_render.html.twig' as module %}
+{% set current_article = _content.publishedAt is defined ? _content.id : '' %}
+{% set localized_title = title is iterable ? title[app.request.locale]|default(title|first|default('')) : title|default('') %}
+
+<div {{ module.id(id) }} {{ module.class(class) }}>
+    {{ sfs_cms_block_by_type('article_link_list', {
+        'title': localized_title,
+        'tag': tag|default(''),
+        'limit': limit|default(5),
+        'article_order': order|default('published_at_desc'),
+        'current_article': current_article
+    }, app.request.locale) }}
+</div>

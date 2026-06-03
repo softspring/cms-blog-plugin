@@ -1,13 +1,16 @@
-block_articles_related:
-    label: "Related articles"
-    prototype_button: "Related articles"
-    prototype_button_icon: '<i class="bi bi-tags-fill"></i>'
+article_link_list:
+    label: "Article link list"
+    prototype_button_icon: '<i class="bi bi-link-45deg"></i>'
+    prototype_button: "Article link list"
     form:
         _group:
+            filters: "Filters"
             attributes: "Attributes"
-            content: "Content"
+            article_filters: "Article filters"
         id.label: "Id"
         class.label: "Classes"
+        site_filter.label: "Sites"
+        locale_filter.label: "Languages"
         title.label: "Title"
         tag.label: "Tag"
         tag.placeholder: "Select a tag"
@@ -18,7 +21,3 @@ block_articles_related:
             published_at_asc: "Oldest first"
             name_asc: "Name A-Z"
             name_desc: "Name Z-A"
-    render:
-        title: "Related articles"
-    edit:
-        no_results: "There are no published articles for this tag."

@@ -1,0 +1,22 @@
+{% trans_default_domain 'sfs_cms_modules' %}
+{% import '@SfsCms/macros/modules_edit.html.twig' as module %}
+
+<div {{ module.link_id(form.id) }} {{ module.link_class(form.class) }}>
+    {% for site in form.vars.sites %}
+        {% for locale in form.vars.locales %}
+            {% set title_data = form.title is defined ? form.title.vars.data|default({}) : {} %}
+            <div style="pointer-events: none;cursor: default;" data-article-list-preview data-lang="{{ locale }}" data-site="{{ site }}" class="section-preview"
+                 data-preview-url="{{ url('sfs_cms_admin_blocks_render_preview_by_type', {
+                     'type': 'article_link_list',
+                     '_locale': locale,
+                     '_sfs_cms_site': site,
+                     'cms-edit': true,
+                     'title': title_data is iterable ? title_data[locale]|default(title_data|first|default('')) : title_data|default(''),
+                     'tag': form.tag.vars.data|default(''),
+                     'limit': form.limit.vars.data|default(5),
+                     'article_order': form.order.vars.data|default('published_at_desc')
+                 }) }}"
+            ></div>
+        {% endfor %}
+    {% endfor %}
+</div>

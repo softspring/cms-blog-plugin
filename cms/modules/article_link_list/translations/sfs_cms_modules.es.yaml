@@ -1,13 +1,16 @@
-block_articles_related:
-    label: "Artículos relacionados"
-    prototype_button: "Artículos relacionados"
-    prototype_button_icon: '<i class="bi bi-tags-fill"></i>'
+article_link_list:
+    label: "Listado de enlaces de artículos"
+    prototype_button_icon: '<i class="bi bi-link-45deg"></i>'
+    prototype_button: "Listado de enlaces de artículos"
     form:
         _group:
+            filters: "Filtros"
             attributes: "Atributos"
-            content: "Contenido"
+            article_filters: "Filtro de artículos"
         id.label: "Id"
         class.label: "Clases"
+        site_filter.label: "Sitios"
+        locale_filter.label: "Idiomas"
         title.label: "Título"
         tag.label: "Etiqueta"
         tag.placeholder: "Selecciona una etiqueta"
@@ -18,7 +21,3 @@ block_articles_related:
             published_at_asc: "Más antiguos primero"
             name_asc: "Nombre A-Z"
             name_desc: "Nombre Z-A"
-    render:
-        title: "Artículos relacionados"
-    edit:
-        no_results: "No hay artículos publicados para esta etiqueta."

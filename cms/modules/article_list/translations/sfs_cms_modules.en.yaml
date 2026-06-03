@@ -1,10 +1,24 @@
 article_list:
-    label: "Article list"
+    label: "Article card list"
     prototype_button_icon: '<i class="bi bi-list-stars"></i>'
-    prototype_button: "Article list"
+    prototype_button: "Article card list"
     form:
         _group:
             filters: "Filters"
+            article_filters: "Articles filters"
+            attributes: "Attributes"
             others: "Others"
+        id.label: "Id"
+        class.label: "Classes"
         site_filter.label: "Sites"
         locale_filter.label: "Languages"
+        show_filter_form.label: "Show search form"
+        tag.label: "Tag"
+        tag.placeholder: "Select a tag"
+        limit.label: "Number of articles"
+        order.label: "Order"
+        order.values:
+            published_at_desc: "Newest first"
+            published_at_asc: "Oldest first"
+            name_asc: "Name A-Z"
+            name_desc: "Name Z-A"

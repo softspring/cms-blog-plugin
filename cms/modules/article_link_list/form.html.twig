@@ -8,9 +8,11 @@
 {{ sfs_cms_admin_module_accordion_block_end() }}
 
 {{ sfs_cms_admin_module_accordion_block_start(form, accordion, 'article_filters', true) }}
+{% if form.title is defined %}
 <div class="col-12">
-    {{ form_row(form.show_filter_form, {'attr': {'data-article-list-preview-param': 'show_filter_form'}}) }}
+    {{ form_row(form.title, {'attr': {'data-article-list-preview-param': 'title'}}) }}
 </div>
+{% endif %}
 <div class="col-12">
     {{ form_row(form.tag, {'attr': {'data-article-list-preview-param': 'tag'}}) }}
 </div>
