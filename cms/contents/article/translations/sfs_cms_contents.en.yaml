@@ -318,6 +318,7 @@ admin_article:
             metaTitle.label: "Title (browser title and meta tags)"
             metaDescription.label: "Description (meta tag)"
             metaKeywords.label: "Keywords (meta tag)"
+            canonicalContent.label: "Canonical content"
         title.label: "Article title"
         description.label: "Excerpt"
         reading_minutes.label: "Reading minutes"
