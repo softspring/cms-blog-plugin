@@ -1,15 +1,15 @@
 {% block body %}
     <main role="main">
         <div class="container">
-            {% for locale,title in entity.extraData.title %}
+            {% for locale,title in content_entity.extraData.title %}
                 <h1 data-lang="{{ locale }}">{{ title }}</h1>
             {% endfor %}
 
-            {% for locale,description in entity.extraData.description %}
+            {% for locale,description in content_entity.extraData.description %}
                 <p data-lang="{{ locale }}">{{ description }}</p>
             {% endfor %}
 
-            {{ sfs_cms_block_by_type('article_header_data', {'article': entity.id}) }}
+            {{ sfs_cms_block_by_type('article_header_data', {'article': content_entity.id}) }}
 
             {{ form_row(form.data.main) }}
         </div>

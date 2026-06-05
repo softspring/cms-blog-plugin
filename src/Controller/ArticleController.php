@@ -88,6 +88,8 @@ class ArticleController extends AbstractController
      */
     public function latestBlock(Request $request): Response
     {
+        trigger_deprecation('softspring/cms-blog-plugin', '6.0', 'The "article_latest_list" block is deprecated, use the "article_link_list" module instead.');
+
         $locale = $this->setLocale($request);
 
         $query = $this->getPublicQuery($request);
