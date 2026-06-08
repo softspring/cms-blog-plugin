@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Softspring\CmsBlogPlugin\Form;
 
 use Softspring\CmsBlogPlugin\Entity\ArticleContent;

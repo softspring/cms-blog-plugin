@@ -11,13 +11,13 @@
         "symfony/translation": "^6.4 || ^7.4 || ^8.0"
     },
     "require-dev": {
-        "softspring/cms-data-plugin": "^6.0@dev",
         "ergebnis/composer-normalize": "^2.50",
         "friendsofphp/php-cs-fixer": "^3.94",
         "guzzlehttp/guzzle": "^7.8.2",
         "guzzlehttp/promises": "^2.0",
         "phpstan/phpstan": "^2.1",
-        "rector/rector": "^2.3"
+        "rector/rector": "^2.3",
+        "softspring/cms-data-plugin": "^6.0@dev"
     },
     "suggest": {
         "softspring/user-bundle": "If you want to use users as blog authors"
