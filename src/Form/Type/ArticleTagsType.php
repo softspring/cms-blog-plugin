@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Softspring\CmsBlogPlugin\Form\Type;
 
 use Softspring\CmsBlogPlugin\Manager\ArticleTagManager;
@@ -23,7 +25,7 @@ class ArticleTagsType extends AbstractType
         $builder->addModelTransformer(new CallbackTransformer(
             fn (?array $tags): string => json_encode($tags ?? [], JSON_THROW_ON_ERROR),
             function (?string $tags): array {
-                if (empty($tags)) {
+                if (in_array($tags, [null, '', '0'], true)) {
                     return [];
                 }
 

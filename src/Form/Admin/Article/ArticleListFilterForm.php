@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Softspring\CmsBlogPlugin\Form\Admin\Article;
 
 use Softspring\CmsBlogPlugin\Model\AuthorInterface;

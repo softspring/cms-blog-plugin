@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Softspring\CmsBlogPlugin\Form\Type;
 
 use Softspring\CmsBlogPlugin\Manager\ArticleTagManager;
@@ -21,7 +23,7 @@ class BlogArticleTagType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $tags = $this->articleTagManager->getExistingTags();
-        $choices = array_combine($tags, $tags) ?: [];
+        $choices = array_combine($tags, $tags);
 
         $resolver->setDefaults([
             'required' => false,

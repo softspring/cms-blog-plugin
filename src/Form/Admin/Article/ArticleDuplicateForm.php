@@ -1,23 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Softspring\CmsBlogPlugin\Form\Admin\Article;
 
-use Doctrine\ORM\EntityManagerInterface;
 use Softspring\CmsBlogPlugin\Form\Type\ArticleTagsType;
 use Softspring\CmsBlogPlugin\Model\ArticleAuthorInterface;
 use Softspring\CmsBundle\Form\Admin\Content\ContentDuplicateForm;
 use Softspring\CmsBundle\Form\Type\UserType;
-use Softspring\CmsBundle\Translator\TranslatableContext;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class ArticleDuplicateForm extends ContentDuplicateForm
 {
-    public function __construct(TranslatableContext $translatableContext, EntityManagerInterface $em)
-    {
-        parent::__construct($translatableContext, $em);
-    }
-
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         parent::buildForm($builder, $options);
