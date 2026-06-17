@@ -40,7 +40,7 @@
 {% if articles.total is defined %}
     {% include '@SfsComponents/paginator/pager.html.twig' with {
         'collection': articles,
-        'pagination_route': app.request.query.get('current_route', ''),
+        'pagination_route': pagination_route|default(app.request.query.get('current_route', '')),
         'pagination_route_attributes': {},
         'query_params': query,
     } %}

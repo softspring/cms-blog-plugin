@@ -28,6 +28,7 @@ class ArticleController extends AbstractController
         $currentArticle = (string) $request->query->get('current_article', '');
         [$orderField, $orderDirection] = $this->getArticleOrder($articleOrder);
 
+        $currentRoute = (string) $request->query->get('current_route', '');
         $query = $this->cleanPublicQuery($this->getPublicQuery($request));
         $request->query->replace($query);
 
@@ -73,6 +74,7 @@ class ArticleController extends AbstractController
 
         $viewData = [
             'query' => $query,
+            'pagination_route' => $currentRoute,
             'articles' => $limit ? $qb->getQuery()->getResult() : Paginator::queryPaginatedFilterForm($form, $request),
         ];
 
