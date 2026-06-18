@@ -35,8 +35,8 @@ jobs:
             -   name: Check PHP Version
                 run: php -v
 
-            -   name: Validate composer.json and composer.lock
-                run: composer validate --strict
+            -   name: Validate composer.json
+                run: composer validate --strict --no-check-lock
 
             -   name: Cache Composer packages
                 id: composer-cache
@@ -51,10 +51,19 @@ jobs:
                 run: composer update --prefer-dist --no-interaction --no-progress ${{ matrix.composer-prefer }}
 
             -   name: Run phpstan
-                run: ./vendor/bin/phpstan analyse
+                run: ./vendor/bin/phpstan analyse src tests --level 5
 
-            #            -   name: Run tests
-            #                run: ./vendor/bin/phpunit --coverage-text --coverage-html=.phpunit.cache/html-report
+            -   name: Run tests
+                run: ./vendor/bin/phpunit
 
             -   name: Code Style check
                 run: ./vendor/bin/php-cs-fixer fix -v --diff --dry-run
+
+            -   name: Run Rector
+                run: ./vendor/bin/rector process src tests --dry-run
+
+            -   name: Upload coverage to Codecov
+                uses: codecov/codecov-action@v6
+                with:
+                    token: ${{ secrets.CODECOV_TOKEN }}
+                    files: clover.xml
