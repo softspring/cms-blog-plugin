@@ -62,8 +62,32 @@ jobs:
             -   name: Run Rector
                 run: ./vendor/bin/rector process src tests --dry-run
 
+            -   name: Lint YAML
+                run: |
+                    ./vendor/bin/yaml-lint .github/ -vvv --parse-tags
+                    ./vendor/bin/yaml-lint config/ -vvv --parse-tags
+                    ./vendor/bin/yaml-lint translations/ -vvv --parse-tags
+
             -   name: Upload coverage to Codecov
                 uses: codecov/codecov-action@v6
                 with:
                     token: ${{ secrets.CODECOV_TOKEN }}
                     files: clover.xml
+
+    frontend:
+        needs: build
+        runs-on: ubuntu-latest
+
+        steps:
+            -   uses: actions/checkout@v6
+
+            -   name: Install Node.js
+                uses: actions/setup-node@v6
+                with:
+                    node-version: '20'
+
+            -   name: Build distributable assets
+                run: npm run build
+
+            -   name: Check distributable assets are current
+                run: git diff --exit-code -- assets/dist

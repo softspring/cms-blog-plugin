@@ -173,7 +173,9 @@ class ArticleController extends AbstractController
     public function setLocale(Request $request): string
     {
         $locale = $request->query->get('_locale', $request->getLocale() ?: 'en');
-        $this->localeSwitcher && $this->localeSwitcher->setLocale($locale);
+        if ($this->localeSwitcher instanceof LocaleSwitcher) {
+            $this->localeSwitcher->setLocale($locale);
+        }
         $request->setLocale($locale);
 
         return $locale;
