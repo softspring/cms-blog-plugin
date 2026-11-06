@@ -7,3 +7,7 @@
 [![Downloads](https://img.shields.io/packagist/dt/softspring/cms-blog-plugin?style=flat-square)](https://packagist.org/packages/softspring/cms-blog-plugin)
 [![CI](https://img.shields.io/github/actions/workflow/status/softspring/cms-blog-plugin/ci.yml?branch=6.0&style=flat-square&label=CI)](https://github.com/softspring/cms-blog-plugin/actions/workflows/ci.yml)
 [![Coverage](https://img.shields.io/codecov/c/github/softspring/cms-blog-plugin?branch=6.0&style=flat-square)](https://app.codecov.io/gh/softspring/cms-blog-plugin/tree/6.0)
+
+## Documentation
+
+[Armonic documentation](https://armonic.softspring.es/6.0/bundles/cms-blog-plugin)
