@@ -6,8 +6,8 @@
     "require": {
         "php": ">=8.4",
         "scienta/doctrine-json-functions": "^6.0",
-        "softspring/cms-bundle": "^6.0@dev",
-        "softspring/time-ago-bundle": "^6.0@dev",
+        "softspring/cms-bundle": "6.1.*@dev",
+        "softspring/time-ago-bundle": "6.1.*@dev",
         "symfony/translation": "^6.4 || ^7.4 || ^8.0"
     },
     "require-dev": {
@@ -19,7 +19,7 @@
         "phpunit/phpunit": "^12.5",
         "rector/rector": "^2.6.7",
         "symfony/polyfill-php85": "^1.33",
-        "softspring/cms-data-plugin": "^6.0@dev"
+        "softspring/cms-data-plugin": "6.1.*@dev"
     },
     "suggest": {
         "softspring/user-bundle": "If you want to use users as blog authors"
@@ -39,7 +39,8 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-6.0": "6.0.x-dev"
+            "dev-6.0": "6.0.x-dev",
+            "dev-6.1": "6.1.x-dev"
         }
     },
     "scripts": {
