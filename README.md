@@ -10,4 +10,4 @@
 
 ## Documentation
 
-[Armonic documentation](https://armonic.softspring.es/6.1@dev/bundles/cms-blog-plugin)
+[Armonic documentation](https://armonic.softspring.es/6.1-dev/bundles/cms-blog-plugin)
