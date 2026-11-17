@@ -270,6 +270,7 @@ admin_article:
             publishedAt.header: "Published at"
         filter_form:
             name.label: "Name"
+            path.label: "Path"
             sites.label: "Sites"
             status.label: "Status"
             author.label: "Author"
