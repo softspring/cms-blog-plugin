@@ -8,7 +8,9 @@ use Softspring\CmsBundle\Model\ContentInterface;
 use Softspring\CmsDataPlugin\Data\EntityTransformer\ContentEntityTransformer;
 use Softspring\CmsDataPlugin\Data\Exception\InvalidElementException;
 use Softspring\CmsDataPlugin\Data\ReferencesRepository;
+use Symfony\Component\DependencyInjection\Attribute\AsTaggedItem;
 
+#[AsTaggedItem(priority: 0)]
 class ArticleEntityTransformer extends ContentEntityTransformer
 {
     public function supports(string $type, $data = null): bool
